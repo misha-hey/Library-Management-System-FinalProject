@@ -33,5 +33,23 @@ namespace LibraryAPI.Controllers
 
             return Ok(borrow);
         }
+        [HttpGet("user/{userId}")]   
+        public IActionResult GetBorrowedByUser(int userId)
+        {
+            var data = (from b in _context.Borrows
+                        join bk in _context.Books
+                        on b.BookId equals bk.BookId
+                        where b.UserId == userId
+                        select new
+                        {
+                            borrowId = b.BorrowId,
+                            bookTitle = bk.Title,
+                            borrowDate = b.BorrowDate,
+                            dueDate = b.DueDate,
+                            status = b.Status
+                        }).ToList();
+
+            return Ok(data);
+        }
     }
 }

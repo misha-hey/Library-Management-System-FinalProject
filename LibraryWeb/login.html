@@ -196,8 +196,11 @@ async function login(){
 
     loginDiv.style.display = "none";
     dashboard.style.display = "block";
+     localStorage.setItem("user", JSON.stringify(user));
+    location.href = "dashboard.html";
 
     welcome.innerText = `Welcome ${user.name}`;
+    
 }
 
 // LOGOUT
