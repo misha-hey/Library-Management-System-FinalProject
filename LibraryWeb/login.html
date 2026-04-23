@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Library System</title>
+    <title>Library System - Borrower</title>
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Bootstrap Icons -->
+    <!-- Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
 
     <style>
@@ -18,12 +18,12 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-family: Arial, sans-serif;
+            font-family: Arial;
         }
 
         .auth-card {
             width: 380px;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255,255,255,0.95);
             border-radius: 15px;
             padding: 30px;
             box-shadow: 0 15px 40px rgba(0,0,0,0.3);
@@ -31,29 +31,21 @@
 
         .title {
             text-align: center;
-            font-weight: bold;
             margin-bottom: 20px;
         }
 
         .form-control {
             border-radius: 10px;
-            padding: 10px;
         }
 
         .btn {
             width: 100%;
             border-radius: 10px;
-            padding: 10px;
         }
 
         .link {
             cursor: pointer;
             color: #0d6efd;
-            text-decoration: none;
-        }
-
-        .link:hover {
-            text-decoration: underline;
         }
 
         #dashboard {
@@ -77,15 +69,14 @@
 
 <!-- LOGIN -->
 <div id="loginDiv" class="auth-card">
-    <h3 class="title">📚 Library Login</h3>
+    <h3 class="title">📚 Borrower Login</h3>
 
     <input id="loginEmail" class="form-control mt-2" placeholder="Email">
 
-    <!-- PASSWORD WITH EYE -->
     <div class="input-group mt-2">
         <input id="loginPassword" type="password" class="form-control" placeholder="Password">
         <span class="input-group-text" onclick="togglePassword('loginPassword', this)">
-            <i class="bi bi-eye"></i>
+            <i class="bi bi-eye-slash"></i> <!-- default hidden -->
         </span>
     </div>
 
@@ -93,29 +84,23 @@
 
     <p class="text-center mt-3">
         No account?
-        <a class="link" onclick="showRegister()">Register here</a>
+        <a class="link" onclick="showRegister()">Register</a>
     </p>
 </div>
 
 <!-- REGISTER -->
 <div id="registerDiv" class="auth-card" style="display:none;">
-    <h3 class="title">📝 Create Account</h3>
+    <h3 class="title">📝 Register Borrower</h3>
 
     <input id="regName" class="form-control mt-2" placeholder="Full Name">
     <input id="regEmail" class="form-control mt-2" placeholder="Email">
 
-    <!-- PASSWORD WITH EYE -->
     <div class="input-group mt-2">
         <input id="regPassword" type="password" class="form-control" placeholder="Password">
         <span class="input-group-text" onclick="togglePassword('regPassword', this)">
-            <i class="bi bi-eye"></i>
+            <i class="bi bi-eye-slash"></i> <!-- default hidden -->
         </span>
     </div>
-
-    <select id="regRole" class="form-control mt-2">
-        <option value="Borrower">Borrower</option>
-        <option value="Admin">Admin</option>
-    </select>
 
     <button onclick="register()" class="btn btn-success mt-3">Register</button>
 
@@ -128,7 +113,8 @@
 <div id="dashboard" style="display:none;">
     <div class="dashboard-box">
         <h2 id="welcome"></h2>
-        <p>Welcome to Library Management System</p>
+        <p>📖 You can now browse and borrow books</p>
+
         <button onclick="logout()" class="btn btn-danger mt-3">Logout</button>
     </div>
 </div>
@@ -136,7 +122,7 @@
 <script>
 const API_URL = "https://localhost:7151/api/auth";
 
-// SWITCH UI
+// SWITCH
 function showRegister(){
     loginDiv.style.display = "none";
     registerDiv.style.display = "block";
@@ -147,19 +133,21 @@ function showLogin(){
     loginDiv.style.display = "block";
 }
 
-// TOGGLE PASSWORD
+// ✅ FINAL TOGGLE (BASED SA IMONG RULE)
 function togglePassword(inputId, el){
     const input = document.getElementById(inputId);
     const icon = el.querySelector("i");
 
     if(input.type === "password"){
+        // SHOW PASSWORD
         input.type = "text";
-        icon.classList.remove("bi-eye");
-        icon.classList.add("bi-eye-slash");
-    } else {
-        input.type = "password";
         icon.classList.remove("bi-eye-slash");
-        icon.classList.add("bi-eye");
+        icon.classList.add("bi-eye"); // 👁 visible
+    } else {
+        // HIDE PASSWORD
+        input.type = "password";
+        icon.classList.remove("bi-eye");
+        icon.classList.add("bi-eye-slash"); // 🙈 hidden
     }
 }
 
@@ -168,16 +156,19 @@ async function register(){
     const name = regName.value;
     const email = regEmail.value;
     const password = regPassword.value;
-    const role = regRole.value;
 
     const res = await fetch(`${API_URL}/register`, {
         method: "POST",
         headers: {"Content-Type":"application/json"},
-        body: JSON.stringify({ name, email, password, role })
+        body: JSON.stringify({
+            name,
+            email,
+            password,
+            role: "Borrower"
+        })
     });
 
-    const msg = await res.text();
-    alert(msg);
+    alert(await res.text());
 }
 
 // LOGIN
@@ -192,16 +183,21 @@ async function login(){
     });
 
     if(!res.ok){
-        alert("Invalid login credentials");
+        alert("Invalid login");
         return;
     }
 
     const user = await res.json();
 
+    if(user.role === "Admin"){
+        alert("Admin must use the desktop system.");
+        return;
+    }
+
     loginDiv.style.display = "none";
     dashboard.style.display = "block";
 
-    welcome.innerText = `Welcome ${user.name} (${user.role})`;
+    welcome.innerText = `Welcome ${user.name}`;
 }
 
 // LOGOUT
