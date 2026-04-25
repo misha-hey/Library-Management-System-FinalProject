@@ -51,5 +51,16 @@ namespace LibraryDesktop
             form1.Show();
             this.Hide();
         }
+        private void btnBooks_Click_1(object sender, EventArgs e)
+        {
+            frmBooks books = new frmBooks();
+            books.Show();
+            this.Hide();
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

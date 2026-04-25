@@ -33,10 +33,10 @@
             this.btnMenu = new Guna.UI2.WinForms.Guna2Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.side = new System.Windows.Forms.Panel();
+            this.btnBooks = new Guna.UI2.WinForms.Guna2Button();
             this.btnLogout = new Guna.UI2.WinForms.Guna2Button();
-            this.btnPatient = new Guna.UI2.WinForms.Guna2Button();
-            this.btnDoctor = new Guna.UI2.WinForms.Guna2Button();
-            this.btnDepartment = new Guna.UI2.WinForms.Guna2Button();
+            this.btnReports = new Guna.UI2.WinForms.Guna2Button();
+            this.btnUsers = new Guna.UI2.WinForms.Guna2Button();
             this.sidetransition = new System.Windows.Forms.Timer(this.components);
             this.guna2CustomGradientPanel1.SuspendLayout();
             this.side.SuspendLayout();
@@ -85,18 +85,36 @@
             this.btnExit.Size = new System.Drawing.Size(44, 34);
             this.btnExit.TabIndex = 18;
             this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // side
             // 
             this.side.BackColor = System.Drawing.Color.DarkOrange;
+            this.side.Controls.Add(this.btnBooks);
             this.side.Controls.Add(this.btnLogout);
-            this.side.Controls.Add(this.btnPatient);
-            this.side.Controls.Add(this.btnDoctor);
-            this.side.Controls.Add(this.btnDepartment);
+            this.side.Controls.Add(this.btnReports);
+            this.side.Controls.Add(this.btnUsers);
             this.side.Location = new System.Drawing.Point(-3, 43);
             this.side.Name = "side";
-            this.side.Size = new System.Drawing.Size(10, 615);
+            this.side.Size = new System.Drawing.Size(226, 615);
             this.side.TabIndex = 24;
+            // 
+            // btnBooks
+            // 
+            this.btnBooks.BorderRadius = 5;
+            this.btnBooks.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnBooks.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnBooks.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnBooks.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnBooks.FillColor = System.Drawing.Color.MintCream;
+            this.btnBooks.Font = new System.Drawing.Font("Elephant", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBooks.ForeColor = System.Drawing.Color.Black;
+            this.btnBooks.Location = new System.Drawing.Point(13, 53);
+            this.btnBooks.Name = "btnBooks";
+            this.btnBooks.Size = new System.Drawing.Size(194, 59);
+            this.btnBooks.TabIndex = 4;
+            this.btnBooks.Text = "Manage Books";
+            this.btnBooks.Click += new System.EventHandler(this.btnBooks_Click_1);
             // 
             // btnLogout
             // 
@@ -108,60 +126,44 @@
             this.btnLogout.FillColor = System.Drawing.Color.MintCream;
             this.btnLogout.Font = new System.Drawing.Font("Elephant", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogout.ForeColor = System.Drawing.Color.Black;
-            this.btnLogout.Location = new System.Drawing.Point(23, 429);
+            this.btnLogout.Location = new System.Drawing.Point(13, 429);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(174, 52);
+            this.btnLogout.Size = new System.Drawing.Size(194, 52);
             this.btnLogout.TabIndex = 3;
             this.btnLogout.Text = "Logout";
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
-            // btnPatient
+            // btnReports
             // 
-            this.btnPatient.BorderRadius = 5;
-            this.btnPatient.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnPatient.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnPatient.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnPatient.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnPatient.FillColor = System.Drawing.Color.MintCream;
-            this.btnPatient.Font = new System.Drawing.Font("Elephant", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPatient.ForeColor = System.Drawing.Color.Black;
-            this.btnPatient.Location = new System.Drawing.Point(23, 309);
-            this.btnPatient.Name = "btnPatient";
-            this.btnPatient.Size = new System.Drawing.Size(174, 52);
-            this.btnPatient.TabIndex = 2;
-            this.btnPatient.Text = "Reports";
+            this.btnReports.BorderRadius = 5;
+            this.btnReports.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnReports.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnReports.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnReports.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnReports.FillColor = System.Drawing.Color.MintCream;
+            this.btnReports.Font = new System.Drawing.Font("Elephant", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReports.ForeColor = System.Drawing.Color.Black;
+            this.btnReports.Location = new System.Drawing.Point(13, 309);
+            this.btnReports.Name = "btnReports";
+            this.btnReports.Size = new System.Drawing.Size(194, 52);
+            this.btnReports.TabIndex = 2;
+            this.btnReports.Text = "Reports";
             // 
-            // btnDoctor
+            // btnUsers
             // 
-            this.btnDoctor.BorderRadius = 5;
-            this.btnDoctor.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnDoctor.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnDoctor.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnDoctor.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnDoctor.FillColor = System.Drawing.Color.MintCream;
-            this.btnDoctor.Font = new System.Drawing.Font("Elephant", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDoctor.ForeColor = System.Drawing.Color.Black;
-            this.btnDoctor.Location = new System.Drawing.Point(23, 187);
-            this.btnDoctor.Name = "btnDoctor";
-            this.btnDoctor.Size = new System.Drawing.Size(174, 52);
-            this.btnDoctor.TabIndex = 1;
-            this.btnDoctor.Text = "Manage Users";
-            // 
-            // btnDepartment
-            // 
-            this.btnDepartment.BorderRadius = 5;
-            this.btnDepartment.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnDepartment.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnDepartment.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnDepartment.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnDepartment.FillColor = System.Drawing.Color.MintCream;
-            this.btnDepartment.Font = new System.Drawing.Font("Elephant", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDepartment.ForeColor = System.Drawing.Color.Black;
-            this.btnDepartment.Location = new System.Drawing.Point(23, 64);
-            this.btnDepartment.Name = "btnDepartment";
-            this.btnDepartment.Size = new System.Drawing.Size(174, 52);
-            this.btnDepartment.TabIndex = 0;
-            this.btnDepartment.Text = "Manage Books";
+            this.btnUsers.BorderRadius = 5;
+            this.btnUsers.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnUsers.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnUsers.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnUsers.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnUsers.FillColor = System.Drawing.Color.MintCream;
+            this.btnUsers.Font = new System.Drawing.Font("Elephant", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUsers.ForeColor = System.Drawing.Color.Black;
+            this.btnUsers.Location = new System.Drawing.Point(13, 187);
+            this.btnUsers.Name = "btnUsers";
+            this.btnUsers.Size = new System.Drawing.Size(194, 52);
+            this.btnUsers.TabIndex = 1;
+            this.btnUsers.Text = "Manage Users";
             // 
             // sidetransition
             // 
@@ -193,9 +195,9 @@
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Panel side;
         private Guna.UI2.WinForms.Guna2Button btnLogout;
-        private Guna.UI2.WinForms.Guna2Button btnDoctor;
-        private Guna.UI2.WinForms.Guna2Button btnDepartment;
-        private Guna.UI2.WinForms.Guna2Button btnPatient;
+        private Guna.UI2.WinForms.Guna2Button btnUsers;
+        private Guna.UI2.WinForms.Guna2Button btnReports;
         private System.Windows.Forms.Timer sidetransition;
+        private Guna.UI2.WinForms.Guna2Button btnBooks;
     }
 }

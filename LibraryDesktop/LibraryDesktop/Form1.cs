@@ -59,7 +59,7 @@ namespace LibraryDesktop
                 HttpResponseMessage response = await client.PostAsync(url, content);
 
                 string result = await response.Content.ReadAsStringAsync();
-                MessageBox.Show(result); // DEBUG
+              
 
                 if (!response.IsSuccessStatusCode)
                 {
@@ -71,6 +71,7 @@ namespace LibraryDesktop
 
                 if (user != null && user.Role == "Admin")
                 {
+                    MessageBox.Show("Login Successfully!");
                     frmDashboard home = new frmDashboard();
                     home.Show();
                     this.Hide();
