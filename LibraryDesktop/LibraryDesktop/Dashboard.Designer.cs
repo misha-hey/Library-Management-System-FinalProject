@@ -148,6 +148,7 @@
             this.btnReports.Size = new System.Drawing.Size(194, 52);
             this.btnReports.TabIndex = 2;
             this.btnReports.Text = "Reports";
+            this.btnReports.Click += new System.EventHandler(this.btnReports_Click);
             // 
             // btnUsers
             // 

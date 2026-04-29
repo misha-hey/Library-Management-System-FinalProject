@@ -62,5 +62,12 @@ namespace LibraryDesktop
         {
             Application.Exit();
         }
+
+        private void btnReports_Click(object sender, EventArgs e)
+        {
+            frmReport report= new frmReport();
+            report.Show();
+            this.Hide();
+        }
     }
 }
