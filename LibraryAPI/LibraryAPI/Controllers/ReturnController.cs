@@ -35,5 +35,26 @@ namespace LibraryAPI.Controllers
 
             return Ok(returnBook);
         }
+        [HttpGet]
+        public IActionResult GetReturnedBooks()
+        {
+            var data = (from r in _context.Returns
+                        join br in _context.Borrows
+                        on r.BorrowId equals br.BorrowId
+                        join b in _context.Books
+                        on br.BookId equals b.BookId
+                        join u in _context.Users
+                        on br.UserId equals u.UserId
+                        select new
+                        {
+                            returnId = r.ReturnBookId,
+                            bookTitle = b.Title,
+                            userName = u.Name,
+                            returnDate = r.ReturnDate.ToString("yyyy-MM-dd"),
+                            fine = r.FineAmount
+                        }).ToList();
+
+            return Ok(data);
+        }
     }
 }

@@ -20,18 +20,14 @@ namespace LibraryDesktop
             InitializeComponent();
         }
 
-        private readonly string baseUrl = "http://localhost:7151/api/reports/";
+        private readonly string baseApi = "https://localhost:7151/api/";
 
 
-
-        // =========================
-        // 📊 SUMMARY (LABELS)
-        // =========================
         private async Task LoadSummary()
         {
             using (HttpClient client = new HttpClient())
             {
-                var json = await client.GetStringAsync(baseUrl + "summary");
+                var json = await client.GetStringAsync(baseApi + "reports/summary");
                 dynamic data = JsonConvert.DeserializeObject(json);
 
                 lblBooks.Text = data.totalBooks.ToString();
@@ -48,7 +44,7 @@ namespace LibraryDesktop
         {
             using (HttpClient client = new HttpClient())
             {
-                var json = await client.GetStringAsync(baseUrl + "borrow-per-day");
+                var json = await client.GetStringAsync(baseApi + "reports/borrow-per-day");
                 var data = JsonConvert.DeserializeObject<List<dynamic>>(json);
 
                 chartBorrow.Series.Clear();
@@ -57,7 +53,7 @@ namespace LibraryDesktop
                 chartBorrow.Titles.Add("Borrow Activity Per Day");
 
                 var series = chartBorrow.Series.Add("Borrows");
-                series.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
+                series.ChartType = SeriesChartType.Column;
 
                 foreach (var item in data)
                 {
@@ -66,6 +62,23 @@ namespace LibraryDesktop
 
                     series.Points.AddXY(date.ToString("MMM dd"), count);
                 }
+            }
+        }
+
+        // =========================
+        // 📋 LOAD TABLE (REUSABLE)
+        // =========================
+        private async Task LoadTable(string url)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                dgvReports.DataSource = null; // clear first
+
+                var json = await client.GetStringAsync(url);
+                var data = JsonConvert.DeserializeObject<List<dynamic>>(json);
+
+                dgvReports.DataSource = data;
+                dgvReports.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             }
         }
         private async void btnRefresh_Click(object sender, EventArgs e)
@@ -78,6 +91,33 @@ namespace LibraryDesktop
         {
             await LoadSummary();
             await LoadBorrowPerDayChart();
+        }
+       
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            frmDashboard dashboard=new frmDashboard();      
+            dashboard.Show();
+            this.Hide();
+        }
+
+        private async void linklblBooks_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            await LoadTable(baseApi + "books");
+        }
+
+        private async void linklblUsers_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            await LoadTable(baseApi + "users");
+        }
+
+        private async void linklblBorrowed_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            await LoadTable(baseApi + "reports/borrowed");
+        }
+
+        private async void linklblReturned_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            await LoadTable(baseApi + "return");
         }
     }
 }
