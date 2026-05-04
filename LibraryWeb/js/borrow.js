@@ -3,6 +3,11 @@ const RETURN = "https://localhost:7151/api/return";
 
 let user = JSON.parse(localStorage.getItem("user"));
 
+if(!user){
+    alert("Login first");
+    location.href="login.html";
+}
+
 async function loadBorrow(){
     const res = await fetch(`${API}/user/${user.userId}`);
     const data = await res.json();
@@ -10,7 +15,7 @@ async function loadBorrow(){
     let html="";
 
     data.forEach(b=>{
-        html += `
+        html+=`
         <tr>
             <td>${b.bookTitle}</td>
             <td>${new Date(b.borrowDate).toLocaleDateString()}</td>
@@ -24,7 +29,7 @@ async function loadBorrow(){
         </tr>`;
     });
 
-    borrowTable.innerHTML = html;
+    document.getElementById("borrowTable").innerHTML = html;
 }
 
 async function returnBook(id){
@@ -33,7 +38,7 @@ async function returnBook(id){
         headers:{"Content-Type":"application/json"},
         body: JSON.stringify({
             borrowId:id,
-            returnDate:new Date()
+            returnDate:new Date().toISOString()
         })
     });
 

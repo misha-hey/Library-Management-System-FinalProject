@@ -1,49 +1,56 @@
 const API_BOOKS = "https://localhost:7151/api/books";
 const API_BORROW = "https://localhost:7151/api/borrow";
 
-let allBooks = [];
-let selectedBook = null;
+let allBooks=[];
 
 async function loadBooks(){
-    const res = await fetch(API_BOOKS);
-    const data = await res.json();
-    allBooks = data;
-    render(data);
+    try{
+        const res = await fetch(API_BOOKS);
+        const data = await res.json();
+        allBooks = data;
+        renderBooks(data);
+    }catch(e){
+        console.error(e);
+        alert("Cannot connect to API");
+    }
 }
 
-function render(books){
+function renderBooks(books){
     let html="";
 
     books.forEach(b=>{
         let img = b.imagePath 
-            ? "https://localhost:7151"+b.imagePath
-            : "https://via.placeholder.com/300";
+            ? "https://localhost:7151" + b.imagePath
+            : "https://via.placeholder.com/200";
 
-        html += `
-        <div class="col-md-2">
-            <div class="book-card" onclick='openModal(${JSON.stringify(b)})'>
-                <img src="${img}" class="book-img">
-                <div class="overlay">${b.title}</div>
+        let desc = b.description || "No description";
+
+        html+=`
+        <div class="card">
+            <img src="${img}">
+            <div style="padding:10px">
+                <b>${b.title}</b><br>
+                <small>${desc}</small><br>
+                <small>${b.author}</small><br>
+
+                <button onclick="borrow(${b.bookId})"
+                ${b.quantity<=0?"disabled":""}>
+                ${b.quantity<=0?"Out":"Borrow"}
+                </button>
             </div>
         </div>`;
     });
 
-    bookGrid.innerHTML = html;
+    document.getElementById("bookGrid").innerHTML = html;
 }
 
-function openModal(book){
-    selectedBook = book;
-    modal.style.display="block";
-    modalImg.src = "https://localhost:7151"+book.imagePath;
-    modalTitle.innerText = book.title;
-}
-
-function borrowNow(){
-    borrowBook(selectedBook.bookId);
-}
-
-async function borrowBook(id){
+async function borrow(id){
     let user = JSON.parse(localStorage.getItem("user"));
+
+    if(!user){
+        alert("Login first");
+        return;
+    }
 
     await fetch(API_BORROW,{
         method:"POST",
@@ -51,8 +58,8 @@ async function borrowBook(id){
         body: JSON.stringify({
             userId:user.userId,
             bookId:id,
-            borrowDate:new Date(),
-            dueDate:new Date()
+            borrowDate:new Date().toISOString(),
+            dueDate:new Date().toISOString()
         })
     });
 
@@ -60,8 +67,9 @@ async function borrowBook(id){
 }
 
 function filterBooks(){
-    let s = searchInput.value.toLowerCase();
-    render(allBooks.filter(b=>b.title.toLowerCase().includes(s)));
+    let s = document.getElementById("searchInput").value.toLowerCase();
+    let filtered = allBooks.filter(b => b.title.toLowerCase().includes(s));
+    renderBooks(filtered);
 }
 
 loadBooks();

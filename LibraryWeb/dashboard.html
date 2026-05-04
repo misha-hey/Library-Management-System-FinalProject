@@ -1,30 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
 <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-<div class="sidebar">
-    <h3>📚 Library</h3>
-    <p id="userInfo"></p>
+<div class="navbar">
+    <h2>📚 Library</h2>
 
-    <button onclick="loadPage('books.html')">📖 Books</button>
-    <button onclick="loadPage('borrow.html')">📦 My Borrowed</button>
-    <button onclick="logout()">Logout</button>
+    <div>
+        <button onclick="loadPage('books.html')">Books</button>
+        <button onclick="loadPage('borrow.html')">My Borrowed</button>
+        <button onclick="logout()">Logout</button>
+    </div>
 </div>
 
-<div class="main">
-    <iframe id="frame" src="books.html"></iframe>
-</div>
+<iframe id="frame" src="books.html"></iframe>
 
 <script>
 let user = JSON.parse(localStorage.getItem("user"));
-document.getElementById("userInfo").innerText = user.name;
+
+if(!user){
+    location.href="login.html";
+}
 
 function loadPage(p){
-    frame.src = p;
+    document.getElementById("frame").src = p;
 }
 
 function logout(){
