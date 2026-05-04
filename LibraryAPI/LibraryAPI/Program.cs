@@ -31,5 +31,5 @@ app.MapControllers();
 
 app.UseSwagger();
 app.UseSwaggerUI();
-
+app.UseStaticFiles();
 app.Run();

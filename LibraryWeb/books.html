@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<h2>📖 Books</h2>
+<input id="searchInput" placeholder="Search..." onkeyup="filterBooks()">
+
+<div id="bookGrid" class="row"></div>
+
+<!-- MODAL -->
+<div id="modal" style="display:none;">
+    <img id="modalImg">
+    <h3 id="modalTitle"></h3>
+    <button onclick="borrowNow()">Borrow</button>
+</div>
+
+<script src="js/books.js"></script>
+
+</body>
+</html>

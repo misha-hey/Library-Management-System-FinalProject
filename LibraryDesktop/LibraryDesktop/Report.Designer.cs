@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.guna2CustomGradientPanel6 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.linklblUsers = new System.Windows.Forms.LinkLabel();
@@ -77,7 +77,7 @@
             this.guna2CustomGradientPanel1.FillColor2 = System.Drawing.Color.PeachPuff;
             this.guna2CustomGradientPanel1.FillColor3 = System.Drawing.Color.PeachPuff;
             this.guna2CustomGradientPanel1.FillColor4 = System.Drawing.Color.DarkOrange;
-            this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(69, 200);
+            this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(69, 186);
             this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
             this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(199, 135);
             this.guna2CustomGradientPanel1.TabIndex = 0;
@@ -175,18 +175,18 @@
             this.guna2CustomGradientPanel3.FillColor2 = System.Drawing.Color.PeachPuff;
             this.guna2CustomGradientPanel3.FillColor3 = System.Drawing.Color.PeachPuff;
             this.guna2CustomGradientPanel3.FillColor4 = System.Drawing.Color.DarkOrange;
-            this.guna2CustomGradientPanel3.Location = new System.Drawing.Point(69, 377);
+            this.guna2CustomGradientPanel3.Location = new System.Drawing.Point(69, 340);
             this.guna2CustomGradientPanel3.Name = "guna2CustomGradientPanel3";
-            this.guna2CustomGradientPanel3.Size = new System.Drawing.Size(201, 193);
+            this.guna2CustomGradientPanel3.Size = new System.Drawing.Size(201, 141);
             this.guna2CustomGradientPanel3.TabIndex = 1;
             // 
             // guna2CustomGradientPanel7
             // 
             this.guna2CustomGradientPanel7.Controls.Add(this.linklblBorrowed);
             this.guna2CustomGradientPanel7.Controls.Add(this.lblBorrowed);
-            this.guna2CustomGradientPanel7.Location = new System.Drawing.Point(20, 26);
+            this.guna2CustomGradientPanel7.Location = new System.Drawing.Point(20, 19);
             this.guna2CustomGradientPanel7.Name = "guna2CustomGradientPanel7";
-            this.guna2CustomGradientPanel7.Size = new System.Drawing.Size(155, 147);
+            this.guna2CustomGradientPanel7.Size = new System.Drawing.Size(155, 99);
             this.guna2CustomGradientPanel7.TabIndex = 3;
             // 
             // linklblBorrowed
@@ -196,7 +196,7 @@
             this.linklblBorrowed.BackColor = System.Drawing.Color.Snow;
             this.linklblBorrowed.Font = new System.Drawing.Font("Stencil", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linklblBorrowed.LinkColor = System.Drawing.Color.Black;
-            this.linklblBorrowed.Location = new System.Drawing.Point(15, 40);
+            this.linklblBorrowed.Location = new System.Drawing.Point(12, 19);
             this.linklblBorrowed.Name = "linklblBorrowed";
             this.linklblBorrowed.Size = new System.Drawing.Size(130, 26);
             this.linklblBorrowed.TabIndex = 3;
@@ -209,7 +209,7 @@
             this.lblBorrowed.AutoSize = true;
             this.lblBorrowed.BackColor = System.Drawing.Color.Snow;
             this.lblBorrowed.Font = new System.Drawing.Font("Stencil", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBorrowed.Location = new System.Drawing.Point(60, 77);
+            this.lblBorrowed.Location = new System.Drawing.Point(57, 56);
             this.lblBorrowed.Name = "lblBorrowed";
             this.lblBorrowed.Size = new System.Drawing.Size(25, 26);
             this.lblBorrowed.TabIndex = 0;
@@ -224,18 +224,18 @@
             this.guna2CustomGradientPanel4.FillColor2 = System.Drawing.Color.PeachPuff;
             this.guna2CustomGradientPanel4.FillColor3 = System.Drawing.Color.PeachPuff;
             this.guna2CustomGradientPanel4.FillColor4 = System.Drawing.Color.DarkOrange;
-            this.guna2CustomGradientPanel4.Location = new System.Drawing.Point(69, 715);
+            this.guna2CustomGradientPanel4.Location = new System.Drawing.Point(69, 504);
             this.guna2CustomGradientPanel4.Name = "guna2CustomGradientPanel4";
-            this.guna2CustomGradientPanel4.Size = new System.Drawing.Size(199, 193);
+            this.guna2CustomGradientPanel4.Size = new System.Drawing.Size(199, 153);
             this.guna2CustomGradientPanel4.TabIndex = 1;
             // 
             // guna2CustomGradientPanel8
             // 
             this.guna2CustomGradientPanel8.Controls.Add(this.linklblReturned);
             this.guna2CustomGradientPanel8.Controls.Add(this.lblReturned);
-            this.guna2CustomGradientPanel8.Location = new System.Drawing.Point(24, 26);
+            this.guna2CustomGradientPanel8.Location = new System.Drawing.Point(23, 20);
             this.guna2CustomGradientPanel8.Name = "guna2CustomGradientPanel8";
-            this.guna2CustomGradientPanel8.Size = new System.Drawing.Size(155, 147);
+            this.guna2CustomGradientPanel8.Size = new System.Drawing.Size(155, 108);
             this.guna2CustomGradientPanel8.TabIndex = 3;
             // 
             // linklblReturned
@@ -245,7 +245,7 @@
             this.linklblReturned.BackColor = System.Drawing.Color.Snow;
             this.linklblReturned.Font = new System.Drawing.Font("Stencil", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linklblReturned.LinkColor = System.Drawing.Color.Black;
-            this.linklblReturned.Location = new System.Drawing.Point(11, 38);
+            this.linklblReturned.Location = new System.Drawing.Point(14, 21);
             this.linklblReturned.Name = "linklblReturned";
             this.linklblReturned.Size = new System.Drawing.Size(125, 26);
             this.linklblReturned.TabIndex = 3;
@@ -258,7 +258,7 @@
             this.lblReturned.AutoSize = true;
             this.lblReturned.BackColor = System.Drawing.Color.Snow;
             this.lblReturned.Font = new System.Drawing.Font("Stencil", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblReturned.Location = new System.Drawing.Point(58, 77);
+            this.lblReturned.Location = new System.Drawing.Point(61, 60);
             this.lblReturned.Name = "lblReturned";
             this.lblReturned.Size = new System.Drawing.Size(25, 26);
             this.lblReturned.TabIndex = 0;
@@ -266,17 +266,17 @@
             // 
             // chartBorrow
             // 
-            chartArea5.Name = "ChartArea1";
-            this.chartBorrow.ChartAreas.Add(chartArea5);
-            legend5.Name = "Legend1";
-            this.chartBorrow.Legends.Add(legend5);
-            this.chartBorrow.Location = new System.Drawing.Point(496, 40);
+            chartArea1.Name = "ChartArea1";
+            this.chartBorrow.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chartBorrow.Legends.Add(legend1);
+            this.chartBorrow.Location = new System.Drawing.Point(503, 12);
             this.chartBorrow.Name = "chartBorrow";
-            series5.ChartArea = "ChartArea1";
-            series5.Legend = "Legend1";
-            series5.Name = "Series1";
-            this.chartBorrow.Series.Add(series5);
-            this.chartBorrow.Size = new System.Drawing.Size(579, 352);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chartBorrow.Series.Add(series1);
+            this.chartBorrow.Size = new System.Drawing.Size(506, 326);
             this.chartBorrow.TabIndex = 2;
             this.chartBorrow.Text = "chart1";
             // 
@@ -323,38 +323,38 @@
             this.guna2CustomGradientPanel9.Dock = System.Windows.Forms.DockStyle.Left;
             this.guna2CustomGradientPanel9.Location = new System.Drawing.Point(0, 0);
             this.guna2CustomGradientPanel9.Name = "guna2CustomGradientPanel9";
-            this.guna2CustomGradientPanel9.Size = new System.Drawing.Size(430, 950);
+            this.guna2CustomGradientPanel9.Size = new System.Drawing.Size(430, 680);
             this.guna2CustomGradientPanel9.TabIndex = 6;
             // 
             // dgvReports
             // 
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
-            this.dgvReports.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvReports.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgvReports.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvReports.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvReports.ColumnHeadersHeight = 4;
             this.dgvReports.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvReports.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvReports.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvReports.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvReports.Location = new System.Drawing.Point(496, 454);
+            this.dgvReports.Location = new System.Drawing.Point(503, 363);
             this.dgvReports.Name = "dgvReports";
             this.dgvReports.RowHeadersVisible = false;
             this.dgvReports.RowHeadersWidth = 62;
             this.dgvReports.RowTemplate.Height = 28;
-            this.dgvReports.Size = new System.Drawing.Size(586, 429);
+            this.dgvReports.Size = new System.Drawing.Size(513, 294);
             this.dgvReports.TabIndex = 5;
             this.dgvReports.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvReports.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -383,7 +383,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SandyBrown;
-            this.ClientSize = new System.Drawing.Size(1139, 950);
+            this.ClientSize = new System.Drawing.Size(1064, 680);
             this.Controls.Add(this.dgvReports);
             this.Controls.Add(this.chartBorrow);
             this.Controls.Add(this.guna2CustomGradientPanel9);

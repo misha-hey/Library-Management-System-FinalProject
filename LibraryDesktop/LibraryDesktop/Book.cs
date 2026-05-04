@@ -13,5 +13,6 @@ namespace LibraryDesktop
         public string author { get; set; }
         public string category { get; set; }
         public int quantity { get; set; }
+        public string ImagePath { get; set; }
     }
 }
