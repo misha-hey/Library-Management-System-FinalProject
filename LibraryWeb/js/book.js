@@ -1,75 +1,143 @@
 const API_BOOKS = "https://localhost:7151/api/books";
+
 const API_BORROW = "https://localhost:7151/api/borrow";
 
-let allBooks=[];
+let allBooks = [];
 
+/* LOAD BOOKS */
 async function loadBooks(){
+
     try{
+
         const res = await fetch(API_BOOKS);
+
         const data = await res.json();
+
         allBooks = data;
-        renderBooks(data);
-    }catch(e){
-        console.error(e);
-        alert("Cannot connect to API");
+
+        applyFilters();
+    }
+    catch(err){
+
+        console.log(err);
+
+        alert("Failed to load books");
     }
 }
 
-function renderBooks(books){
-    let html="";
+/* SEARCH FILTER */
+function applyFilters(){
 
-    books.forEach(b=>{
-        let img = b.imagePath 
+    const search =
+        document.getElementById("searchInput")
+        .value
+        .toLowerCase();
+
+    const filtered = allBooks.filter(b =>
+
+        b.title.toLowerCase().includes(search)
+    );
+
+    render(filtered);
+}
+
+/* RENDER BOOKS */
+function render(data){
+
+    let html = "";
+
+    data.forEach(b => {
+
+        const img = b.imagePath
+
             ? "https://localhost:7151" + b.imagePath
-            : "https://via.placeholder.com/200";
 
-        let desc = b.description || "No description";
+            : "https://via.placeholder.com/150";
 
-        html+=`
+        html += `
         <div class="card">
-            <img src="${img}">
-            <div style="padding:10px">
-                <b>${b.title}</b><br>
-                <small>${desc}</small><br>
-                <small>${b.author}</small><br>
 
-                <button onclick="borrow(${b.bookId})"
-                ${b.quantity<=0?"disabled":""}>
-                ${b.quantity<=0?"Out":"Borrow"}
+            <img src="${img}">
+
+            <div class="card-body">
+
+                <h3>${b.title}</h3>
+
+                <p>${b.author}</p>
+
+                <p>
+                    Quantity:
+                    ${b.quantity}
+                </p>
+
+                <button onclick="borrowBook(${b.bookId})">
+
+                    Borrow
+
                 </button>
+
             </div>
+
         </div>`;
     });
 
-    document.getElementById("bookGrid").innerHTML = html;
+    document.getElementById("bookGrid").innerHTML =
+        html;
 }
 
-async function borrow(id){
-    let user = JSON.parse(localStorage.getItem("user"));
+/* BORROW BOOK */
+async function borrowBook(bookId){
 
-    if(!user){
-        alert("Login first");
-        return;
+    try{
+
+        const user =
+            JSON.parse(localStorage.getItem("user"));
+
+        if(!user){
+
+            alert("Login first");
+
+            location.href = "login.html";
+
+            return;
+        }
+
+        const res = await fetch(API_BORROW,{
+
+            method:"POST",
+
+            headers:{
+                "Content-Type":"application/json"
+            },
+
+            body: JSON.stringify({
+
+                userId: user.id,
+
+                bookId: bookId
+            })
+        });
+
+        const msg = await res.text();
+
+        if(!res.ok){
+
+            alert(msg);
+
+            return;
+        }
+
+        alert(msg);
+
+        loadBooks();
     }
+    catch(err){
 
-    await fetch(API_BORROW,{
-        method:"POST",
-        headers:{"Content-Type":"application/json"},
-        body: JSON.stringify({
-            userId:user.userId,
-            bookId:id,
-            borrowDate:new Date().toISOString(),
-            dueDate:new Date().toISOString()
-        })
-    });
+        console.log(err);
 
-    alert("Borrowed!");
+        alert("Borrow failed");
+    }
 }
 
-function filterBooks(){
-    let s = document.getElementById("searchInput").value.toLowerCase();
-    let filtered = allBooks.filter(b => b.title.toLowerCase().includes(s));
-    renderBooks(filtered);
-}
-
+/* START */
 loadBooks();

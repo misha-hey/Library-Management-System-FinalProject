@@ -122,37 +122,41 @@
             // 
             // btnBooks
             // 
+            this.btnBooks.Font = new System.Drawing.Font("Stencil", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBooks.Image = ((System.Drawing.Image)(resources.GetObject("btnBooks.Image")));
             this.btnBooks.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnBooks.Name = "btnBooks";
-            this.btnBooks.Size = new System.Drawing.Size(194, 52);
+            this.btnBooks.Size = new System.Drawing.Size(206, 52);
             this.btnBooks.Text = "Manage Books";
             this.btnBooks.Click += new System.EventHandler(this.btnBooks_Click);
             // 
             // btnUsers
             // 
+            this.btnUsers.Font = new System.Drawing.Font("Stencil", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUsers.Image = ((System.Drawing.Image)(resources.GetObject("btnUsers.Image")));
             this.btnUsers.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnUsers.Name = "btnUsers";
-            this.btnUsers.Size = new System.Drawing.Size(188, 52);
+            this.btnUsers.Size = new System.Drawing.Size(205, 52);
             this.btnUsers.Text = "Manage Users";
             this.btnUsers.Click += new System.EventHandler(this.btnUsers_Click_1);
             // 
             // btnReports
             // 
+            this.btnReports.Font = new System.Drawing.Font("Stencil", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReports.Image = ((System.Drawing.Image)(resources.GetObject("btnReports.Image")));
             this.btnReports.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnReports.Name = "btnReports";
-            this.btnReports.Size = new System.Drawing.Size(129, 52);
+            this.btnReports.Size = new System.Drawing.Size(144, 52);
             this.btnReports.Text = "Report";
             this.btnReports.Click += new System.EventHandler(this.btnReports_Click);
             // 
             // btnLogout
             // 
+            this.btnLogout.Font = new System.Drawing.Font("Stencil", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogout.Image = ((System.Drawing.Image)(resources.GetObject("btnLogout.Image")));
             this.btnLogout.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(125, 52);
+            this.btnLogout.Size = new System.Drawing.Size(132, 52);
             this.btnLogout.Text = "Logout";
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click_1);
             // 

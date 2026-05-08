@@ -20,18 +20,44 @@ namespace LibraryAPI.Controllers
         {
             var book = _context.Books.Find(borrow.BookId);
 
-            if (book == null || book.Quantity <= 0)
+            // CHECK IF BOOK EXISTS
+            if (book == null)
+                return BadRequest("Book not found");
+
+            // CHECK QUANTITY
+            if (book.Quantity <= 0)
                 return BadRequest("Book not available");
 
+            // CHECK IF USER ALREADY BORROWED THIS BOOK
+            var existingBorrow = _context.Borrows.FirstOrDefault(b =>
+
+                b.UserId == borrow.UserId &&
+
+                b.BookId == borrow.BookId &&
+
+                b.Status == "Borrowed"
+            );
+
+            if (existingBorrow != null)
+                return BadRequest("You already borrowed this book");
+
+            // REDUCE QUANTITY
             book.Quantity--;
 
+            // SET BORROW DETAILS
             borrow.BorrowDate = DateTime.Now;
+
+            // 3 DAYS DUE DATE
+            borrow.DueDate = DateTime.Now.AddDays(3);
+
             borrow.Status = "Borrowed";
 
+            // SAVE
             _context.Borrows.Add(borrow);
+
             _context.SaveChanges();
 
-            return Ok(borrow);
+            return Ok("Borrowed successfully");
         }
         [HttpGet("user/{userId}")]   
         public IActionResult GetBorrowedByUser(int userId)

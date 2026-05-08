@@ -1,20 +1,86 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<link rel="stylesheet" href="css/style.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Browse Books</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Prata&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
 
-<h2 style="padding:20px;">📖 Browse Books</h2>
+    <div class="navbar">
 
-<div style="padding:0 20px;">
-    <input id="searchInput" placeholder="Search..." onkeyup="filterBooks()">
-</div>
+        <div class="logo">
+            📚 Library
+        </div>
 
-<div id="bookGrid" class="grid"></div>
+        <div class="user-area">
 
-<script src="js/book.js"></script>
+            <span id="userName"></span>
+
+            <button onclick="location.href='books.html'">
+                Books
+            </button>
+
+            <button onclick="location.href='borrow.html'">
+                My Borrowed
+            </button>
+
+            <button onclick="logout()">
+                Logout
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="dashboard">
+
+        <div class="page-header">
+
+            <h1>Browse Books</h1>
+
+            <input id="searchInput"
+                   type="text"
+                   placeholder="Search books..."
+                   onkeyup="applyFilters()">
+
+        </div>
+
+        <div id="bookGrid" class="grid"></div>
+
+    </div>
+
+    <script>
+
+        let user = JSON.parse(localStorage.getItem("user"));
+
+        if(!user){
+
+            location.href = "login.html";
+        }
+
+        document.getElementById("userName").innerText =
+            "Hi, " + user.name;
+
+        function logout(){
+
+            localStorage.removeItem("user");
+
+            location.href = "login.html";
+        }
+
+    </script>
+
+    <script src="js/book.js"></script>
+
 </body>
+
 </html>

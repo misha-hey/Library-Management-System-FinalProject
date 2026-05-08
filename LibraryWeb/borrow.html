@@ -1,28 +1,149 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<link rel="stylesheet" href="css/style.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Borrowed Books</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Prata&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+
 </head>
 
-<body style="padding:20px;">
+<body>
 
-<h2>📦 My Borrowed Books</h2>
+    <!-- NAVBAR -->
+    <div class="navbar">
 
-<table>
-<thead>
-<tr>
-<th>Book</th>
-<th>Borrow</th>
-<th>Due</th>
-<th>Status</th>
-<th>Action</th>
-</tr>
-</thead>
+        <div class="logo">
+            📚 Library
+        </div>
 
-<tbody id="borrowTable"></tbody>
-</table>
+        <div class="user-area">
 
-<script src="js/borrow.js"></script>
+            <span id="userName"></span>
+
+            <button onclick="location.href='books.html'">
+                Books
+            </button>
+
+            <button onclick="location.href='borrow.html'">
+                My Borrowed
+            </button>
+
+            <button onclick="logout()">
+                Logout
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- CONTENT -->
+    <div class="dashboard">
+
+        <!-- NOTIFICATIONS -->
+        <div id="notifications"></div>
+
+        <!-- HEADER -->
+        <div class="page-header">
+
+            <h1>My Borrowed Books</h1>
+
+            <input
+                id="searchHistory"
+                type="text"
+                placeholder="Search..."
+                onkeyup="filterHistory()"
+            >
+
+            <select
+                id="statusFilter"
+                onchange="filterHistory()"
+            >
+
+                <option value="">
+                    All
+                </option>
+
+                <option value="Borrowed">
+                    Borrowed
+                </option>
+
+                <option value="Late">
+                    Late
+                </option>
+
+                <option value="Returned">
+                    Returned
+                </option>
+
+            </select>
+
+        </div>
+
+        <!-- TABLE -->
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Book</th>
+
+                        <th>Borrow Date</th>
+
+                        <th>Due Date</th>
+
+                        <th>Status</th>
+
+                        <th>Action</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="borrowTable"></tbody>
+
+            </table>
+
+        </div>
+
+    
+
+    </div>
+
+    <!-- USER -->
+    <script>
+
+        const currentUser =
+            JSON.parse(localStorage.getItem("user"));
+
+        if(!currentUser){
+
+            location.href = "login.html";
+        }
+
+        document.getElementById("userName").innerText =
+            "Hi, " + currentUser.name;
+
+        function logout(){
+
+            localStorage.removeItem("user");
+
+            location.href = "login.html";
+        }
+
+    </script>
+
+    <!-- BORROW JS -->
+    <script src="js/borrow.js"></script>
+
 </body>
+
 </html>

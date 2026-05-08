@@ -1,40 +1,75 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<link rel="stylesheet" href="css/style.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Library Dashboard</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Prata&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
 
-<div class="navbar">
-    <h2>📚 Library</h2>
+    <div class="navbar">
 
-    <div>
-        <button onclick="loadPage('books.html')">Books</button>
-        <button onclick="loadPage('borrow.html')">My Borrowed</button>
-        <button onclick="logout()">Logout</button>
+        <div class="logo">
+            📚 Library
+        </div>
+
+        <div class="user-area">
+
+            <span id="userName"></span>
+
+            <button onclick="location.href='books.html'">
+                Books
+            </button>
+
+            <button onclick="location.href='borrow.html'">
+                My Borrowed
+            </button>
+
+            <button onclick="logout()">
+                Logout
+            </button>
+
+        </div>
+
     </div>
-</div>
 
-<iframe id="frame" src="books.html"></iframe>
+    <div class="dashboard">
 
-<script>
-let user = JSON.parse(localStorage.getItem("user"));
+        <h1>
+            Welcome to Library System
+        </h1>
 
-if(!user){
-    location.href="login.html";
-}
+    </div>
 
-function loadPage(p){
-    document.getElementById("frame").src = p;
-}
+    <script>
 
-function logout(){
-    localStorage.removeItem("user");
-    location.href="login.html";
-}
-</script>
+        let user = JSON.parse(localStorage.getItem("user"));
+
+        if(!user){
+
+            location.href = "login.html";
+        }
+
+        document.getElementById("userName").innerText =
+            "Hi, " + user.name;
+
+        function logout(){
+
+            localStorage.removeItem("user");
+
+            location.href = "login.html";
+        }
+
+    </script>
 
 </body>
+
 </html>

@@ -1,36 +1,55 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title>Login</title>
-<link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Library Login</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Prata&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 
 <body class="auth-bg">
 
-<div id="loginDiv" class="auth-card">
-    <h3>📚 Library Login</h3>
+    <div id="loginDiv" class="auth-card">
 
-    <input id="loginEmail" placeholder="Email">
-    <input id="loginPassword" type="password" placeholder="Password">
+        <h2>📚 Library Login</h2>
 
-    <button onclick="login()">Login</button>
+        <input id="loginEmail" placeholder="Email">
 
-    <p>No account? <span class="link" onclick="showRegister()">Register</span></p>
-</div>
+        <input id="loginPassword" type="password" placeholder="Password">
 
-<div id="registerDiv" class="auth-card" style="display:none;">
-    <h3>Register</h3>
+        <button onclick="login()">Login</button>
 
-    <input id="regName" placeholder="Name">
-    <input id="regEmail" placeholder="Email">
-    <input id="regPassword" type="password" placeholder="Password">
+        <p class="auth-text">
+            No account?
+            <span class="link" onclick="showRegister()">Register</span>
+        </p>
 
-    <button onclick="register()">Register</button>
+    </div>
 
-    <p><span class="link" onclick="showLogin()">Back</span></p>
-</div>
+    <div id="registerDiv" class="auth-card" style="display:none;">
 
-<script src="js/auth.js"></script>
+        <h2>Create Account</h2>
+
+        <input id="regName" placeholder="Name">
+
+        <input id="regEmail" placeholder="Email">
+
+        <input id="regPassword" type="password" placeholder="Password">
+
+        <button onclick="register()">Register</button>
+
+        <p class="auth-text">
+            <span class="link" onclick="showLogin()">Back to Login</span>
+        </p>
+
+    </div>
+
+    <script src="js/auth.js"></script>
+
 </body>
+
 </html>
