@@ -1,37 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>Browse Books</title>
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet"
+          href="css/style.css">
 
-    <link href="https://fonts.googleapis.com/css2?family=Prata&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
 
 </head>
 
 <body>
 
+    <!-- NAVBAR -->
+
     <div class="navbar">
 
         <div class="logo">
-            📚 Library
+            📚 LibraByte
+        </div>
+
+        <div class="nav-links">
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="books.html"
+               class="active">
+                Browse Books
+            </a>
+
+            <a href="borrow.html">
+                My Borrowed
+            </a>
+
         </div>
 
         <div class="user-area">
 
             <span id="userName"></span>
-
-            <button onclick="location.href='books.html'">
-                Books
-            </button>
-
-            <button onclick="location.href='borrow.html'">
-                My Borrowed
-            </button>
 
             <button onclick="logout()">
                 Logout
@@ -41,26 +57,125 @@
 
     </div>
 
+    <!-- MAIN -->
+
     <div class="dashboard">
 
-        <div class="page-header">
+        <!-- HERO SECTION -->
 
-            <h1>Browse Books</h1>
+        <div class="hero-section">
 
-            <input id="searchInput"
-                   type="text"
-                   placeholder="Search books..."
-                   onkeyup="applyFilters()">
+            <div>
+
+                <h1 class="page-title">
+                    Discover Your Next Book 📖
+                </h1>
+
+                <p class="hero-text">
+
+                    Browse thousands of books,
+                    discover new favorites,
+                    and continue your reading journey.
+
+                </p>
+
+            </div>
 
         </div>
 
-        <div id="bookGrid" class="grid"></div>
+        <!-- SEARCH + FILTER -->
+
+        <div class="page-header">
+
+            <div class="search-box">
+
+                <input id="searchInput"
+                       type="text"
+                       placeholder="Search books..."
+                       onkeyup="applyFilters()">
+
+            </div>
+
+            <select id="categoryFilter"
+                    onchange="applyFilters()">
+
+                <option value="all">
+                    All Categories
+                </option>
+
+                <option value="Programming">
+                    Programming
+                </option>
+
+                <option value="Mathematics">
+                    Mathematics
+                </option>
+
+                <option value="Science">
+                    Science
+                </option>
+
+                <option value="History">
+                    History
+                </option>
+
+                <option value="Literature">
+                    Literature
+                </option>
+
+            </select>
+
+        </div>
+
+        <!-- CATEGORY CHIPS -->
+
+        <div class="category-chips">
+
+            <button onclick="filterCategory('all')">
+                All
+            </button>
+
+            <button onclick="filterCategory('Programming')">
+                Programming
+            </button>
+
+            <button onclick="filterCategory('Mathematics')">
+                Math
+            </button>
+
+            <button onclick="filterCategory('Science')">
+                Science
+            </button>
+
+            <button onclick="filterCategory('History')">
+                History
+            </button>
+
+        </div>
+
+        <!-- BOOK GRID -->
+
+        <div id="bookGrid"
+             class="grid">
+
+        </div>
 
     </div>
 
+    <!-- FOOTER -->
+
+    <div class="footer">
+
+        © 2026 LibraByte Library System
+
+    </div>
+
+    <!-- SCRIPT -->
+
     <script>
 
-        let user = JSON.parse(localStorage.getItem("user"));
+        let user =
+        JSON.parse(localStorage.getItem("user"));
 
         if(!user){
 
@@ -68,13 +183,21 @@
         }
 
         document.getElementById("userName").innerText =
-            "Hi, " + user.name;
+        "👋 " + user.name;
 
         function logout(){
 
             localStorage.removeItem("user");
 
             location.href = "login.html";
+        }
+
+        function filterCategory(category){
+
+            document.getElementById("categoryFilter").value =
+            category;
+
+            applyFilters();
         }
 
     </script>

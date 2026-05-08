@@ -1,212 +1,334 @@
 const API =
-    "https://localhost:7151/api/borrow";
+"https://localhost:7151/api/borrow";
 
 const RETURN =
-    "https://localhost:7151/api/return";
+"https://localhost:7151/api/return";
 
 /* USER */
+
 let user =
-    JSON.parse(localStorage.getItem("user"));
+JSON.parse(
+    localStorage.getItem("user")
+);
 
 /* DATA */
+
 let borrowData = [];
 
-/* CHECK LOGIN */
+/* LOGIN CHECK */
+
 if(!user){
 
     location.href = "login.html";
 }
 
 /* LOAD BORROWED BOOKS */
+
 async function loadBorrow(){
 
     try{
 
         const res =
-            await fetch(`${API}/user/${user.id}`);
+        await fetch(
+            `${API}/user/${user.id}`
+        );
 
         const data =
-            await res.json();
+        await res.json();
 
         borrowData = data;
 
         render(data);
 
         notify(data);
+
+        updateStats(data);
     }
     catch(err){
 
         console.log(err);
 
-        alert("Failed to load borrowed books");
+        showAlert(
+            "Failed to load borrowed books",
+            "danger"
+        );
     }
 }
 
 /* STATUS */
-function getStatus(b){
+
+function getStatus(book){
 
     const now =
-        new Date();
+    new Date();
 
     const due =
-        new Date(b.dueDate);
+    new Date(book.dueDate);
 
-    if(b.status === "Returned")
+    if(book.status === "Returned"){
+
         return "Returned";
+    }
 
-    if(now > due)
+    if(now > due){
+
         return "Late";
+    }
 
     return "Borrowed";
 }
 
-/* RENDER */
+/* RENDER TABLE */
+
 function render(data){
 
-    let table = "";
+    const table =
+    document.getElementById("borrowTable");
+
+    /* EMPTY STATE */
 
     if(data.length === 0){
 
-        table = `
+        table.innerHTML = `
+
         <tr>
 
-            <td colspan="5"
-                style="text-align:center;padding:40px;">
+            <td colspan="5">
 
-                No borrowed books 📚
+                <div class="empty-state">
+
+                    <h2>
+                        No borrowed books 📚
+                    </h2>
+
+                    <p>
+                        Borrow books to see them here.
+                    </p>
+
+                </div>
 
             </td>
 
-        </tr>`;
-
-        document.getElementById("borrowTable")
-        .innerHTML = table;
+        </tr>
+        `;
 
         return;
     }
 
-    data.forEach(b => {
+    let html = "";
+
+    data.forEach(book => {
 
         const status =
-            getStatus(b);
+        getStatus(book);
+
+        /* STATUS BADGES */
 
         let badge = "";
 
         if(status === "Borrowed"){
 
             badge =
-            `<span class="status borrowed">
-                Borrowed
-            </span>`;
+
+            `
+            <span class="status borrowed">
+
+                📖 Borrowed
+
+            </span>
+            `;
         }
 
         else if(status === "Late"){
 
             badge =
-            `<span class="status late">
-                Late
-            </span>`;
+
+            `
+            <span class="status late">
+
+                ⚠ Late
+
+            </span>
+            `;
         }
 
         else{
 
             badge =
-            `<span class="status returned">
-                Returned
-            </span>`;
+
+            `
+            <span class="status returned">
+
+                ✅ Returned
+
+            </span>
+            `;
         }
 
-        table += `
+        /* ACTION BUTTON */
+
+        let action = "";
+
+        if(status !== "Returned"){
+
+            action =
+
+            `
+            <button
+            onclick="returnBook(${book.borrowId})">
+
+                Return
+
+            </button>
+            `;
+        }
+
+        else{
+
+            action =
+
+            `
+            <button
+            disabled
+            class="btn-disabled">
+
+                Completed
+
+            </button>
+            `;
+        }
+
+        html += `
+
         <tr>
 
-            <td>${b.bookTitle}</td>
-
             <td>
-                ${date(b.borrowDate)}
+
+                <strong>
+
+                    ${book.bookTitle}
+
+                </strong>
+
             </td>
 
             <td>
-                ${date(b.dueDate)}
+
+                ${formatDate(book.borrowDate)}
+
             </td>
 
             <td>
+
+                ${formatDate(book.dueDate)}
+
+            </td>
+
+            <td>
+
                 ${badge}
+
             </td>
 
             <td>
 
-                ${status !== "Returned"
+                ${action}
 
-                ? `<button onclick="returnBook(${b.borrowId})">
-                        Return
-                   </button>`
-
-                : ""}
             </td>
 
-        </tr>`;
+        </tr>
+        `;
     });
 
-    document.getElementById("borrowTable")
-    .innerHTML = table;
+    table.innerHTML = html;
 }
+
 /* FILTER */
+
 function filterHistory(){
 
     const search =
-        document.getElementById("searchHistory")
-        .value
-        .toLowerCase();
 
-    const status =
-        document.getElementById("statusFilter")
-        .value;
+    document.getElementById(
+        "searchHistory"
+    )
+    .value
+    .toLowerCase();
+
+    const statusFilter =
+
+    document.getElementById(
+        "statusFilter"
+    )
+    .value;
 
     const filtered =
-        borrowData.filter(b => {
 
-            const st =
-                getStatus(b);
+    borrowData.filter(book => {
 
-            return b.bookTitle
-                .toLowerCase()
-                .includes(search)
+        const status =
+        getStatus(book);
 
-                &&
+        const matchSearch =
 
-                (status === "" ||
-                 st === status);
-        });
+            book.bookTitle
+            .toLowerCase()
+            .includes(search);
+
+        const matchStatus =
+
+            statusFilter === ""
+
+            ||
+
+            status === statusFilter;
+
+        return matchSearch && matchStatus;
+    });
 
     render(filtered);
 }
 
 /* RETURN BOOK */
+
 async function returnBook(id){
 
     try{
 
         const res =
-            await fetch(RETURN,{
+        await fetch(RETURN,{
 
-                method:"POST",
+            method:"POST",
 
-                headers:{
-                    "Content-Type":"application/json"
-                },
+            headers:{
+                "Content-Type":"application/json"
+            },
 
-                body: JSON.stringify({
+            body: JSON.stringify({
 
-                    borrowId:id,
+                borrowId:id,
 
-                    returnDate:new Date()
-                })
-            });
+                returnDate:new Date()
+            })
+        });
 
         const msg =
-            await res.text();
+        await res.text();
 
-        alert(msg);
+        if(!res.ok){
+
+            showAlert(
+                msg,
+                "danger"
+            );
+
+            return;
+        }
+
+        showAlert(
+            msg,
+            "success"
+        );
 
         loadBorrow();
     }
@@ -214,63 +336,147 @@ async function returnBook(id){
 
         console.log(err);
 
-        alert("Return failed");
+        showAlert(
+            "Return failed",
+            "danger"
+        );
     }
 }
 
 /* NOTIFICATIONS */
+
 function notify(data){
 
     let html = "";
 
     const now =
-        new Date();
+    new Date();
 
-    data.forEach(b => {
+    data.forEach(book => {
 
         const due =
-            new Date(b.dueDate);
+        new Date(book.dueDate);
 
         const diff =
-            (due - now) /
-            (1000 * 60 * 60 * 24);
+        (due - now)
+        /
+        (1000 * 60 * 60 * 24);
 
-        if(b.status !== "Returned"){
+        if(book.status !== "Returned"){
+
+            /* OVERDUE */
 
             if(diff < 0){
 
                 html += `
+
                 <div class="alert alert-danger">
 
-                    OVERDUE:
-                    ${b.bookTitle}
+                    ⚠ OVERDUE:
+                    ${book.bookTitle}
 
-                </div>`;
+                </div>
+                `;
             }
+
+            /* DUE SOON */
 
             else if(diff <= 1){
 
                 html += `
+
                 <div class="alert alert-success">
 
-                    Due soon:
-                    ${b.bookTitle}
+                    📅 Due Soon:
+                    ${book.bookTitle}
 
-                </div>`;
+                </div>
+                `;
             }
         }
     });
 
-    document.getElementById("notifications")
+    document.getElementById(
+        "notifications"
+    )
     .innerHTML = html;
 }
 
-/* DATE FORMAT */
-function date(d){
+/* UPDATE STATS */
 
-    return new Date(d)
+function updateStats(data){
+
+    let borrowed = 0;
+
+    let returned = 0;
+
+    let late = 0;
+
+    data.forEach(book => {
+
+        const status =
+        getStatus(book);
+
+        if(status === "Borrowed"){
+
+            borrowed++;
+        }
+
+        else if(status === "Returned"){
+
+            returned++;
+        }
+
+        else if(status === "Late"){
+
+            late++;
+        }
+    });
+
+    document.getElementById(
+        "borrowedCount"
+    ).innerText = borrowed;
+
+    document.getElementById(
+        "returnedCount"
+    ).innerText = returned;
+
+    document.getElementById(
+        "lateCount"
+    ).innerText = late;
+}
+
+/* ALERT */
+
+function showAlert(message,type){
+
+    const div =
+    document.createElement("div");
+
+    div.className =
+    `alert alert-${type}`;
+
+    div.innerText =
+    message;
+
+    document.querySelector(".dashboard")
+    .prepend(div);
+
+    setTimeout(() => {
+
+        div.remove();
+
+    },3000);
+}
+
+/* DATE FORMAT */
+
+function formatDate(date){
+
+    return new Date(date)
     .toLocaleDateString();
 }
 
 /* START */
+
 loadBorrow();

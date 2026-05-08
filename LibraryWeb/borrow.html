@@ -1,38 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
 
-    <title>Borrowed Books</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="css/style.css">
+    <title>My Borrowed Books</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Prata&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+          href="css/style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
 
 </head>
 
 <body>
 
     <!-- NAVBAR -->
+
     <div class="navbar">
 
         <div class="logo">
-            📚 Library
+            📚 LibraByte
+        </div>
+
+        <div class="nav-links">
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="books.html">
+                Browse Books
+            </a>
+
+            <a href="borrow.html"
+               class="active">
+                My Borrowed
+            </a>
+
         </div>
 
         <div class="user-area">
 
             <span id="userName"></span>
-
-            <button onclick="location.href='books.html'">
-                Books
-            </button>
-
-            <button onclick="location.href='borrow.html'">
-                My Borrowed
-            </button>
 
             <button onclick="logout()">
                 Logout
@@ -42,31 +57,56 @@
 
     </div>
 
-    <!-- CONTENT -->
+    <!-- MAIN -->
+
     <div class="dashboard">
 
+        <!-- HERO SECTION -->
+
+        <div class="hero-section">
+
+            <div>
+
+                <h1 class="page-title">
+                    My Borrowed Books 📖
+                </h1>
+
+                <p class="hero-text">
+
+                    Track your borrowed books,
+                    due dates,
+                    and return status easily.
+
+                </p>
+
+            </div>
+
+        </div>
+
         <!-- NOTIFICATIONS -->
+
         <div id="notifications"></div>
 
-        <!-- HEADER -->
+        <!-- SEARCH + FILTER -->
+
         <div class="page-header">
 
-            <h1>My Borrowed Books</h1>
+            <div class="search-box">
 
-            <input
-                id="searchHistory"
-                type="text"
-                placeholder="Search..."
-                onkeyup="filterHistory()"
-            >
+                <input
+                    id="searchHistory"
+                    type="text"
+                    placeholder="Search borrowed books..."
+                    onkeyup="filterHistory()">
+
+            </div>
 
             <select
                 id="statusFilter"
-                onchange="filterHistory()"
-            >
+                onchange="filterHistory()">
 
                 <option value="">
-                    All
+                    All Status
                 </option>
 
                 <option value="Borrowed">
@@ -85,7 +125,50 @@
 
         </div>
 
+        <!-- QUICK STATUS -->
+
+        <div class="stats">
+
+            <div class="stat-card">
+
+                <h3>
+                    Currently Borrowed
+                </h3>
+
+                <p id="borrowedCount">
+                    0
+                </p>
+
+            </div>
+
+            <div class="stat-card">
+
+                <h3>
+                    Returned Books
+                </h3>
+
+                <p id="returnedCount">
+                    0
+                </p>
+
+            </div>
+
+            <div class="stat-card">
+
+                <h3>
+                    Late Books
+                </h3>
+
+                <p id="lateCount">
+                    0
+                </p>
+
+            </div>
+
+        </div>
+
         <!-- TABLE -->
+
         <div class="table-container">
 
             <table>
@@ -94,15 +177,25 @@
 
                     <tr>
 
-                        <th>Book</th>
+                        <th>
+                            Book
+                        </th>
 
-                        <th>Borrow Date</th>
+                        <th>
+                            Borrow Date
+                        </th>
 
-                        <th>Due Date</th>
+                        <th>
+                            Due Date
+                        </th>
 
-                        <th>Status</th>
+                        <th>
+                            Status
+                        </th>
 
-                        <th>Action</th>
+                        <th>
+                            Action
+                        </th>
 
                     </tr>
 
@@ -114,15 +207,22 @@
 
         </div>
 
-    
+    </div>
+
+    <!-- FOOTER -->
+
+    <div class="footer">
+
+        © 2026 LibraByte Library System
 
     </div>
 
     <!-- USER -->
+
     <script>
 
         const currentUser =
-            JSON.parse(localStorage.getItem("user"));
+        JSON.parse(localStorage.getItem("user"));
 
         if(!currentUser){
 
@@ -130,7 +230,7 @@
         }
 
         document.getElementById("userName").innerText =
-            "Hi, " + currentUser.name;
+        "👋 " + currentUser.name;
 
         function logout(){
 
@@ -142,6 +242,7 @@
     </script>
 
     <!-- BORROW JS -->
+
     <script src="js/borrow.js"></script>
 
 </body>

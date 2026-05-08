@@ -1,17 +1,22 @@
-const API_BOOKS = "https://localhost:7151/api/books";
+const API_BOOKS =
+"https://localhost:7151/api/books";
 
-const API_BORROW = "https://localhost:7151/api/borrow";
+const API_BORROW =
+"https://localhost:7151/api/borrow";
 
 let allBooks = [];
 
 /* LOAD BOOKS */
+
 async function loadBooks(){
 
     try{
 
-        const res = await fetch(API_BOOKS);
+        const res =
+        await fetch(API_BOOKS);
 
-        const data = await res.json();
+        const data =
+        await res.json();
 
         allBooks = data;
 
@@ -21,88 +26,211 @@ async function loadBooks(){
 
         console.log(err);
 
-        alert("Failed to load books");
+        showAlert(
+            "Failed to load books",
+            "danger"
+        );
     }
 }
 
-/* SEARCH FILTER */
+/* APPLY FILTERS */
+
 function applyFilters(){
 
     const search =
-        document.getElementById("searchInput")
-        .value
-        .toLowerCase();
+    document.getElementById("searchInput")
+    .value
+    .toLowerCase();
 
-    const filtered = allBooks.filter(b =>
+    const category =
+    document.getElementById("categoryFilter")
+    .value;
 
-        b.title.toLowerCase().includes(search)
-    );
+    const filtered =
+    allBooks.filter(book => {
 
-    render(filtered);
+        const matchSearch =
+
+            book.title
+            .toLowerCase()
+            .includes(search)
+
+            ||
+
+            book.author
+            .toLowerCase()
+            .includes(search);
+
+        const matchCategory =
+
+            category === "all"
+
+            ||
+
+            book.category === category;
+
+        return matchSearch && matchCategory;
+    });
+
+    renderBooks(filtered);
 }
 
 /* RENDER BOOKS */
-function render(data){
+
+function renderBooks(data){
+
+    const bookGrid =
+    document.getElementById("bookGrid");
+
+    /* EMPTY STATE */
+
+    if(data.length === 0){
+
+        bookGrid.innerHTML = `
+
+        <div class="empty-state">
+
+            <h2>
+                No books found 📚
+            </h2>
+
+            <p>
+                Try another search or category.
+            </p>
+
+        </div>
+        `;
+
+        return;
+    }
 
     let html = "";
 
-    data.forEach(b => {
+    data.forEach(book => {
 
-        const img = b.imagePath
+        const img =
 
-            ? "https://localhost:7151" + b.imagePath
+            book.imagePath
 
-            : "https://via.placeholder.com/150";
+            ?
+
+            "https://localhost:7151"
+            + book.imagePath
+
+            :
+
+            "https://via.placeholder.com/300x420?text=No+Image";
+
+        /* STATUS */
+
+        const available =
+        book.quantity > 0;
+
+        const statusBadge =
+
+            available
+
+            ?
+
+            `
+            <span class="status returned">
+                🟢 Available
+            </span>
+            `
+
+            :
+
+            `
+            <span class="status late">
+                🔴 Not Available
+            </span>
+            `;
+
+        /* BUTTON */
+
+        const button =
+
+            available
+
+            ?
+
+            `
+            <button
+            onclick="borrowBook(${book.bookId})">
+
+                Borrow Book
+
+            </button>
+            `
+
+            :
+
+            `
+            <button disabled
+                    class="btn-disabled">
+
+                Out of Stock
+
+            </button>
+            `;
 
         html += `
+
         <div class="card">
 
             <img src="${img}">
 
             <div class="card-body">
 
-                <h3>${b.title}</h3>
-
-                <p>${b.author}</p>
+                <h3>
+                    ${book.title}
+                </h3>
 
                 <p>
-                    Quantity:
-                    ${b.quantity}
+                    ${book.author}
                 </p>
 
-                <button onclick="borrowBook(${b.bookId})">
+                <p>
+                    Category:
+                    ${book.category || "General"}
+                </p>
 
-                    Borrow
+                ${statusBadge}
 
-                </button>
+                <br><br>
+
+                ${button}
 
             </div>
 
-        </div>`;
+        </div>
+        `;
     });
 
-    document.getElementById("bookGrid").innerHTML =
-        html;
+    bookGrid.innerHTML = html;
 }
 
 /* BORROW BOOK */
+
 async function borrowBook(bookId){
 
     try{
 
         const user =
-            JSON.parse(localStorage.getItem("user"));
+        JSON.parse(
+            localStorage.getItem("user")
+        );
 
         if(!user){
 
-            alert("Login first");
-
-            location.href = "login.html";
+            location.href =
+            "login.html";
 
             return;
         }
 
-        const res = await fetch(API_BORROW,{
+        const res =
+        await fetch(API_BORROW,{
 
             method:"POST",
 
@@ -112,22 +240,23 @@ async function borrowBook(bookId){
 
             body: JSON.stringify({
 
-                userId: user.id,
+                userId:user.id,
 
-                bookId: bookId
+                bookId:bookId
             })
         });
 
-        const msg = await res.text();
+        const msg =
+        await res.text();
 
         if(!res.ok){
 
-            alert(msg);
+            showAlert(msg,"danger");
 
             return;
         }
 
-        alert(msg);
+        showAlert(msg,"success");
 
         loadBooks();
     }
@@ -135,9 +264,36 @@ async function borrowBook(bookId){
 
         console.log(err);
 
-        alert("Borrow failed");
+        showAlert(
+            "Borrow failed",
+            "danger"
+        );
     }
 }
 
+/* ALERT */
+
+function showAlert(message,type){
+
+    const div =
+    document.createElement("div");
+
+    div.className =
+    `alert alert-${type}`;
+
+    div.innerText =
+    message;
+
+    document.querySelector(".dashboard")
+    .prepend(div);
+
+    setTimeout(() => {
+
+        div.remove();
+
+    },3000);
+}
+
 /* START */
+
 loadBooks();
