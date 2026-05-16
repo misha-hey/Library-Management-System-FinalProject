@@ -45,6 +45,7 @@
             this.lblpassword = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.btnRegister = new Guna.UI2.WinForms.Guna2Button();
             this.btnExit = new System.Windows.Forms.PictureBox();
             this.guna2CustomGradientPanel2 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.btnEye = new System.Windows.Forms.PictureBox();
@@ -90,6 +91,7 @@
             this.guna2CustomGradientPanel3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.guna2CustomGradientPanel3.BorderRadius = 20;
             this.guna2CustomGradientPanel3.BorderThickness = 1;
+            this.guna2CustomGradientPanel3.Controls.Add(this.btnRegister);
             this.guna2CustomGradientPanel3.Controls.Add(this.label7);
             this.guna2CustomGradientPanel3.Controls.Add(this.label5);
             this.guna2CustomGradientPanel3.Controls.Add(this.label2);
@@ -148,7 +150,7 @@
             this.btnLogin.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnLogin.FillColor = System.Drawing.Color.SandyBrown;
             this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogin.ForeColor = System.Drawing.Color.White;
+            this.btnLogin.ForeColor = System.Drawing.Color.DimGray;
             this.btnLogin.Location = new System.Drawing.Point(42, 343);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLogin.Name = "btnLogin";
@@ -303,6 +305,26 @@
             this.label6.TabIndex = 14;
             this.label6.Text = "LOGIN";
             // 
+            // btnRegister
+            // 
+            this.btnRegister.BorderColor = System.Drawing.Color.SandyBrown;
+            this.btnRegister.BorderRadius = 15;
+            this.btnRegister.BorderThickness = 2;
+            this.btnRegister.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnRegister.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnRegister.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnRegister.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnRegister.FillColor = System.Drawing.Color.SeaShell;
+            this.btnRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegister.ForeColor = System.Drawing.Color.Gray;
+            this.btnRegister.Location = new System.Drawing.Point(38, 429);
+            this.btnRegister.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnRegister.Name = "btnRegister";
+            this.btnRegister.Size = new System.Drawing.Size(366, 65);
+            this.btnRegister.TabIndex = 23;
+            this.btnRegister.Text = "REGISTER";
+            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
+            // 
             // btnExit
             // 
             this.btnExit.Image = global::LibraryDesktop.Properties.Resources.icons8_exit_30;
@@ -417,6 +439,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox btnExit;
+        private Guna.UI2.WinForms.Guna2Button btnRegister;
     }
 }
 

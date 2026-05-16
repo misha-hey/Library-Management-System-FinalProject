@@ -91,6 +91,20 @@ namespace LibraryDesktop
         {
             await LoadSummary();
             await LoadBorrowPerDayChart();
+            dgvReports.ColumnHeadersVisible = true;
+
+            dgvReports.EnableHeadersVisualStyles = false;
+
+            dgvReports.ColumnHeadersHeight = 40;
+
+            dgvReports.ColumnHeadersDefaultCellStyle.BackColor =
+                 Color.FromArgb(100, 88, 255);
+
+            dgvReports.ColumnHeadersDefaultCellStyle.ForeColor =
+             Color.White;
+
+            dgvReports.ColumnHeadersDefaultCellStyle.Font =
+                new Font("Segoe UI", 10, FontStyle.Bold);
         }
        
         private void btnBack_Click(object sender, EventArgs e)

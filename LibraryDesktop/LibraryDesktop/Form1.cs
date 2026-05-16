@@ -86,5 +86,12 @@ namespace LibraryDesktop
                 MessageBox.Show("Error: " + ex.Message);
             }
         }
+
+        private void btnRegister_Click(object sender, EventArgs e)
+        {
+           RegisterForm register = new RegisterForm();
+           register.Show();
+            this.Hide();
+        }
     }
 }

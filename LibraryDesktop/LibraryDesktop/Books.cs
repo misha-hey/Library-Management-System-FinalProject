@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Guna.UI2.WinForms;
 using Newtonsoft.Json;
 using static Guna.UI2.Native.WinApi;
 
@@ -46,6 +47,20 @@ namespace LibraryDesktop
         private async void frmBooks_Load(object sender, EventArgs e)
         {
             await LoadBooks();
+            dataGridView1.ColumnHeadersVisible = true;
+
+            dataGridView1.EnableHeadersVisualStyles = false;
+
+           dataGridView1.ColumnHeadersHeight = 40;
+
+           dataGridView1.ColumnHeadersDefaultCellStyle.BackColor =
+                Color.FromArgb(100, 88, 255);
+
+           dataGridView1.ColumnHeadersDefaultCellStyle.ForeColor =
+            Color.White;
+
+            dataGridView1.ColumnHeadersDefaultCellStyle.Font =
+                new Font("Segoe UI", 10, FontStyle.Bold);
         }
         private async void btnAdd_Click(object sender, EventArgs e)
         {
