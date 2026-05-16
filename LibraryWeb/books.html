@@ -18,7 +18,7 @@
 
 </head>
 
-<body>
+<body class="books-page">
 
     <!-- NAVBAR -->
 
@@ -63,69 +63,37 @@
 
         <!-- HERO SECTION -->
 
-        <div class="hero-section">
+       <div class="hero-section">
 
-            <div>
+    <div class="hero-overlay">
 
-                <h1 class="page-title">
-                    Discover Your Next Book 📖
-                </h1>
+        <h1 class="hero-title">
+            Discover Your Next Book 📖
+        </h1>
 
-                <p class="hero-text">
+        <p class="hero-text">
 
-                    Browse thousands of books,
-                    discover new favorites,
-                    and continue your reading journey.
+            Browse thousands of books,
+            discover new favorites,
+            and continue your reading journey.
 
-                </p>
+        </p>
 
-            </div>
+        <div class="search-box hero-search">
 
-        </div>
-
-        <!-- SEARCH + FILTER -->
-
-        <div class="page-header">
-
-            <div class="search-box">
-
-                <input id="searchInput"
-                       type="text"
-                       placeholder="Search books..."
-                       onkeyup="applyFilters()">
-
-            </div>
-
-            <select id="categoryFilter"
-                    onchange="applyFilters()">
-
-                <option value="all">
-                    All Categories
-                </option>
-
-                <option value="Programming">
-                    Programming
-                </option>
-
-                <option value="Mathematics">
-                    Mathematics
-                </option>
-
-                <option value="Science">
-                    Science
-                </option>
-
-                <option value="History">
-                    History
-                </option>
-
-                <option value="Literature">
-                    Literature
-                </option>
-
-            </select>
+            <input id="searchInput"
+                   type="text"
+                   placeholder="Search books..."
+                   onkeyup="applyFilters()">
 
         </div>
+
+    </div>
+
+</div>
+
+       
+
 
         <!-- CATEGORY CHIPS -->
 
@@ -173,6 +141,7 @@
     <!-- SCRIPT -->
 
     <script>
+        let currentCategory = "all";
 
         let user =
         JSON.parse(localStorage.getItem("user"));
@@ -194,10 +163,9 @@
 
         function filterCategory(category){
 
-            document.getElementById("categoryFilter").value =
-            category;
+         currentCategory = category;
 
-            applyFilters();
+         applyFilters();
         }
 
     </script>
@@ -207,3 +175,4 @@
 </body>
 
 </html>
+       

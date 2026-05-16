@@ -42,9 +42,7 @@ function applyFilters(){
     .value
     .toLowerCase();
 
-    const category =
-    document.getElementById("categoryFilter")
-    .value;
+    let category = currentCategory;
 
     const filtered =
     allBooks.filter(book => {

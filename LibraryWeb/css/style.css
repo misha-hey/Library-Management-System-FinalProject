@@ -79,6 +79,128 @@ h1,h2,h3,h4,h5{
 
     z-index:100;
 }
+.books-page{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+
+    background-image: url('../images/Library.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    min-height: 100vh;
+}
+.category-chips{
+
+    display:flex;
+
+    gap:18px;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+    margin-bottom:50px;
+}
+
+.category-chips button{
+
+    width:auto;
+
+    min-width:140px;
+
+    padding:16px 30px;
+
+    border-radius:50px;
+
+    background:rgba(255,255,255,.9);
+
+    color:var(--text);
+
+    border:1px solid var(--border);
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,.06);
+
+    transition:.3s;
+}
+
+.category-chips button:hover{
+
+    background:var(--accent);
+
+    color:white;
+
+    transform:translateY(-3px);
+}
+.hero-section h1{
+
+    color: white;
+
+    font-size: 55px;
+
+    margin-bottom: 20px;
+}
+.hero-section{
+
+    position:relative;
+
+    padding:90px 70px;
+
+    border-radius:35px;
+
+    overflow:hidden;
+
+    margin-bottom:40px;
+
+    background:
+    linear-gradient(
+    rgba(0,0,0,.55),
+    rgba(0,0,0,.55)
+    );
+
+    backdrop-filter:blur(8px);
+
+    box-shadow:
+    0 20px 40px rgba(0,0,0,.2);
+}
+.hero-overlay{
+
+    max-width:700px;
+}
+
+.hero-title{
+
+    font-size:60px;
+
+    color:white;
+
+    margin-bottom:20px;
+
+    line-height:1.1;
+}
+
+.hero-text{
+
+    color:rgba(255,255,255,.85);
+
+    font-size:18px;
+
+    line-height:1.8;
+
+    margin-bottom:35px;
+}
+
+.hero-search input{
+
+    padding:22px;
+
+    border-radius:20px;
+
+    font-size:17px;
+}
 
 /* LOGO */
 
@@ -601,7 +723,202 @@ td{
 
     color:var(--danger);
 }
+/* =========================
+   MAIN DASHBOARD
+========================= */
 
+.welcome-card{
+
+    background:
+    linear-gradient(
+    rgba(0,0,0,.55),
+    rgba(0,0,0,.55)
+    );
+
+    backdrop-filter:blur(10px);
+
+    border-radius:35px;
+
+    padding:60px;
+
+    margin-bottom:40px;
+
+    color:white;
+
+    max-width:950px;
+
+    box-shadow:
+    0 20px 40px rgba(0,0,0,.25);
+}
+
+.welcome-badge{
+
+    display:inline-block;
+
+    background:rgba(255,255,255,.15);
+
+    padding:10px 18px;
+
+    border-radius:40px;
+
+    margin-bottom:20px;
+
+    font-size:14px;
+
+    color:white;
+}
+
+.welcome-card h1{
+
+    font-size:60px;
+
+    margin-bottom:20px;
+
+    color:white;
+
+    line-height:1.1;
+}
+
+.welcome-card p{
+
+    font-size:19px;
+
+    line-height:1.8;
+
+    color:rgba(255,255,255,.88);
+
+    margin-bottom:35px;
+
+    max-width:650px;
+}
+
+.hero-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    background:var(--accent);
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:18px 30px;
+
+    border-radius:20px;
+
+    font-weight:600;
+
+    transition:.3s;
+}
+
+.hero-btn:hover{
+
+    background:var(--accentDark);
+
+    transform:translateY(-3px);
+}
+
+/* RECENTLY BORROWED */
+
+.recent-card{
+
+    background:rgba(255,255,255,.92);
+
+    border-radius:35px;
+
+    padding:35px;
+
+    box-shadow:
+    0 20px 40px rgba(0,0,0,.1);
+
+    max-width:1100px;
+}
+
+.recent-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:30px;
+}
+
+.recent-header h2{
+
+    font-size:35px;
+}
+
+.recent-header a{
+
+    text-decoration:none;
+
+    color:var(--accent);
+
+    font-weight:600;
+}
+
+.borrow-item{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:20px 0;
+
+    border-bottom:1px solid #eee;
+}
+
+.borrow-item:last-child{
+
+    border-bottom:none;
+}
+
+.borrow-item h3{
+
+    margin-bottom:5px;
+}
+
+.borrow-item p{
+
+    color:var(--lightText);
+}
+
+/* MOBILE DASHBOARD */
+
+@media(max-width:768px){
+
+    .welcome-card{
+
+        padding:35px;
+    }
+
+    .welcome-card h1{
+
+        font-size:40px;
+    }
+
+    .recent-card{
+
+        padding:25px;
+    }
+
+    .borrow-item{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:15px;
+    }
+}
 /* BORROW CARD */
 
 .borrow-card{
@@ -671,6 +988,26 @@ iframe{
     background:var(--accent);
 
     border-radius:20px;
+}
+.grid h2{
+
+    color:white;
+
+    font-size:45px;
+
+    text-align:center;
+
+    text-shadow:
+    0 5px 20px rgba(0,0,0,.5);
+}
+
+.grid p{
+
+    color:rgba(255,255,255,.85);
+
+    text-align:center;
+
+    font-size:18px;
 }
 
 /* MOBILE */

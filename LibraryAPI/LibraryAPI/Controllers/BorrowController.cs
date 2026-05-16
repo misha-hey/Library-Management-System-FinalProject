@@ -77,5 +77,35 @@ namespace LibraryAPI.Controllers
 
             return Ok(data);
         }
+        [HttpGet("recent/{userId}")]
+        public IActionResult GetRecentBorrowed(int userId)
+        {
+            var recentBooks =
+
+                (from b in _context.Borrows
+
+                 join bk in _context.Books
+                 on b.BookId equals bk.BookId
+
+                 where b.UserId == userId
+
+                 orderby b.BorrowDate descending
+
+                 select new
+                 {
+                     bk.BookId,
+                     bk.Title,
+                     bk.Author,
+                     bk.ImagePath,
+                     b.BorrowDate,
+                     b.Status
+                 })
+
+                 .Take(5)
+
+                 .ToList();
+
+            return Ok(recentBooks);
+        }
     }
 }
