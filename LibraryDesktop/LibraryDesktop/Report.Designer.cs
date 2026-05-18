@@ -270,13 +270,13 @@
             this.chartBorrow.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chartBorrow.Legends.Add(legend1);
-            this.chartBorrow.Location = new System.Drawing.Point(503, 12);
+            this.chartBorrow.Location = new System.Drawing.Point(471, 12);
             this.chartBorrow.Name = "chartBorrow";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chartBorrow.Series.Add(series1);
-            this.chartBorrow.Size = new System.Drawing.Size(751, 326);
+            this.chartBorrow.Size = new System.Drawing.Size(767, 326);
             this.chartBorrow.TabIndex = 2;
             this.chartBorrow.Text = "chart1";
             // 
@@ -323,7 +323,7 @@
             this.guna2CustomGradientPanel9.Dock = System.Windows.Forms.DockStyle.Left;
             this.guna2CustomGradientPanel9.Location = new System.Drawing.Point(0, 0);
             this.guna2CustomGradientPanel9.Name = "guna2CustomGradientPanel9";
-            this.guna2CustomGradientPanel9.Size = new System.Drawing.Size(430, 680);
+            this.guna2CustomGradientPanel9.Size = new System.Drawing.Size(430, 800);
             this.guna2CustomGradientPanel9.TabIndex = 6;
             // 
             // dgvReports
@@ -349,12 +349,12 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvReports.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvReports.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvReports.Location = new System.Drawing.Point(503, 363);
+            this.dgvReports.Location = new System.Drawing.Point(471, 359);
             this.dgvReports.Name = "dgvReports";
             this.dgvReports.RowHeadersVisible = false;
             this.dgvReports.RowHeadersWidth = 62;
             this.dgvReports.RowTemplate.Height = 28;
-            this.dgvReports.Size = new System.Drawing.Size(751, 294);
+            this.dgvReports.Size = new System.Drawing.Size(767, 393);
             this.dgvReports.TabIndex = 5;
             this.dgvReports.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvReports.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -384,7 +384,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.SandyBrown;
-            this.ClientSize = new System.Drawing.Size(1278, 680);
+            this.ClientSize = new System.Drawing.Size(1348, 800);
             this.Controls.Add(this.dgvReports);
             this.Controls.Add(this.chartBorrow);
             this.Controls.Add(this.guna2CustomGradientPanel9);

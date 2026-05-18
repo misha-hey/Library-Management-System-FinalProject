@@ -54,6 +54,8 @@ namespace LibraryDesktop
 
                 var series = chartBorrow.Series.Add("Borrows");
                 series.ChartType = SeriesChartType.Column;
+                chartBorrow.ChartAreas[0].AxisY.Interval = 1;
+                chartBorrow.ChartAreas[0].AxisY.Minimum = 0;
 
                 foreach (var item in data)
                 {
@@ -72,13 +74,30 @@ namespace LibraryDesktop
         {
             using (HttpClient client = new HttpClient())
             {
-                dgvReports.DataSource = null; // clear first
+                dgvReports.DataSource = null;
 
-                var json = await client.GetStringAsync(url);
-                var data = JsonConvert.DeserializeObject<List<dynamic>>(json);
+                var json =
+                    await client.GetStringAsync(url);
+
+                var data =
+                    JsonConvert.DeserializeObject<List<dynamic>>(json);
 
                 dgvReports.DataSource = data;
-                dgvReports.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+                dgvReports.AutoSizeColumnsMode =
+                    DataGridViewAutoSizeColumnsMode.Fill;
+
+                // HIDE IMAGEPATH
+                if (dgvReports.Columns["ImagePath"] != null)
+                {
+                    dgvReports.Columns["ImagePath"].Visible = false;
+                }
+
+                // HIDE aLREADYBORROWED
+                if (dgvReports.Columns["alreadyBorrowed"] != null)
+                {
+                    dgvReports.Columns["alreadyBorrowed"].Visible = false;
+                }
             }
         }
         private async void btnRefresh_Click(object sender, EventArgs e)
@@ -126,7 +145,7 @@ namespace LibraryDesktop
 
         private async void linklblBorrowed_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            await LoadTable(baseApi + "reports/borrowed");
+            await LoadTable(baseApi +"borrow");
         }
 
         private async void linklblReturned_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

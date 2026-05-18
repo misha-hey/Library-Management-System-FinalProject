@@ -38,7 +38,6 @@
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.btnBooks = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnUsers = new System.Windows.Forms.ToolStripMenuItem();
             this.btnReports = new System.Windows.Forms.ToolStripMenuItem();
             this.btnLogout = new System.Windows.Forms.ToolStripMenuItem();
             this.guna2CustomGradientPanel2 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
@@ -111,7 +110,6 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnBooks,
-            this.btnUsers,
             this.btnReports,
             this.btnLogout});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -130,24 +128,14 @@
             this.btnBooks.Text = "Manage Books";
             this.btnBooks.Click += new System.EventHandler(this.btnBooks_Click);
             // 
-            // btnUsers
-            // 
-            this.btnUsers.Font = new System.Drawing.Font("Stencil", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUsers.Image = ((System.Drawing.Image)(resources.GetObject("btnUsers.Image")));
-            this.btnUsers.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.btnUsers.Name = "btnUsers";
-            this.btnUsers.Size = new System.Drawing.Size(205, 52);
-            this.btnUsers.Text = "Manage Users";
-            this.btnUsers.Click += new System.EventHandler(this.btnUsers_Click_1);
-            // 
             // btnReports
             // 
             this.btnReports.Font = new System.Drawing.Font("Stencil", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReports.Image = ((System.Drawing.Image)(resources.GetObject("btnReports.Image")));
             this.btnReports.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnReports.Name = "btnReports";
-            this.btnReports.Size = new System.Drawing.Size(144, 52);
-            this.btnReports.Text = "Report";
+            this.btnReports.Size = new System.Drawing.Size(154, 52);
+            this.btnReports.Text = "Reports";
             this.btnReports.Click += new System.EventHandler(this.btnReports_Click);
             // 
             // btnLogout
@@ -209,7 +197,6 @@
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel2;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem btnBooks;
-        private System.Windows.Forms.ToolStripMenuItem btnUsers;
         private System.Windows.Forms.ToolStripMenuItem btnReports;
         private System.Windows.Forms.ToolStripMenuItem btnLogout;
     }

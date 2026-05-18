@@ -63,17 +63,59 @@ namespace LibraryAPI.Controllers
         public IActionResult GetBorrowedByUser(int userId)
         {
             var data = (from b in _context.Borrows
+
                         join bk in _context.Books
                         on b.BookId equals bk.BookId
+
+                        join u in _context.Users
+                        on b.UserId equals u.UserId
+
                         where b.UserId == userId
+
                         select new
                         {
                             borrowId = b.BorrowId,
+
+                            userName = u.Name,
+
                             bookTitle = bk.Title,
+
                             borrowDate = b.BorrowDate,
+
                             dueDate = b.DueDate,
+
                             status = b.Status
                         }).ToList();
+
+            return Ok(data);
+        }
+        [HttpGet]
+        public IActionResult GetAllBorrows()
+        {
+            var data = (from b in _context.Borrows
+
+                        join bk in _context.Books
+                        on b.BookId equals bk.BookId
+
+                        join u in _context.Users
+                        on b.UserId equals u.UserId
+
+                        select new
+                        {
+                            borrowId = b.BorrowId,
+
+                            userName = u.Name,
+
+                            bookTitle = bk.Title,
+
+                            borrowDate = b.BorrowDate,
+
+                            dueDate = b.DueDate,
+
+                            status = b.Status
+                        })
+
+                        .ToList();
 
             return Ok(data);
         }

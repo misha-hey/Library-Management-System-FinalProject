@@ -2,6 +2,7 @@
 <html>
 
 <head>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Library Login</title>
@@ -9,41 +10,61 @@
     <link rel="stylesheet" href="css/style.css">
 
     <link href="https://fonts.googleapis.com/css2?family=Prata&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+
 </head>
 
 <body class="auth-bg">
 
+    <!-- LOGIN -->
     <div id="loginDiv" class="auth-card">
 
-        <h2>📚 Library Login</h2>
+        <h1 class="logo-title">📚 LibraByte</h1>
 
-        <input id="loginEmail" placeholder="Email">
+        <p class="subtitle">
+            Read • Learn • Grow
+        </p>
 
-        <input id="loginPassword" type="password" placeholder="Password">
+        <h2>Welcome Back</h2>
+
+        <input id="loginEmail" type="email" placeholder="Enter your email">
+
+        <input id="loginPassword" type="password" placeholder="Enter your password">
 
         <button onclick="login()">Login</button>
 
         <p class="auth-text">
-            No account?
-            <span class="link" onclick="showRegister()">Register</span>
+            No account yet?
+            <span class="link" onclick="showRegister()">
+                Create Account
+            </span>
         </p>
 
     </div>
 
+    <!-- REGISTER -->
     <div id="registerDiv" class="auth-card" style="display:none;">
+
+        <h1 class="logo-title">📚 LibraByte</h1>
+
+        <p class="subtitle">
+            Create your library account
+        </p>
 
         <h2>Create Account</h2>
 
-        <input id="regName" placeholder="Name">
+        <input id="regName" placeholder="Full Name">
 
-        <input id="regEmail" placeholder="Email">
+        <input id="regEmail" type="email" placeholder="Email Address">
 
         <input id="regPassword" type="password" placeholder="Password">
 
         <button onclick="register()">Register</button>
 
         <p class="auth-text">
-            <span class="link" onclick="showLogin()">Back to Login</span>
+            Already have an account?
+            <span class="link" onclick="showLogin()">
+                Back to Login
+            </span>
         </p>
 
     </div>

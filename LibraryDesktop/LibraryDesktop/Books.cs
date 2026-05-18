@@ -38,8 +38,7 @@ namespace LibraryDesktop
 
                 dataGridView1.DataSource = books;
 
-                dataGridView1.Columns[6].Visible = false;
-                dataGridView1.Columns[7].Visible = false;
+               dataGridView1.Columns["ImagePath"].Visible = false;
             }
         }
 
