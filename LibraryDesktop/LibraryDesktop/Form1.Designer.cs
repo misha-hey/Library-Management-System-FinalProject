@@ -31,34 +31,34 @@
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.label3 = new System.Windows.Forms.Label();
             this.guna2CustomGradientPanel3 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.btnRegister = new Guna.UI2.WinForms.Guna2Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnLogin = new Guna.UI2.WinForms.Guna2Button();
             this.guna2CustomGradientPanel4 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.btnEye = new System.Windows.Forms.PictureBox();
             this.btnNotshow = new System.Windows.Forms.Button();
             this.btnShow = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.txtPassword = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2CustomGradientPanel5 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.txtUsername = new Guna.UI2.WinForms.Guna2TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblUsername = new System.Windows.Forms.Label();
             this.lblpassword = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.btnRegister = new Guna.UI2.WinForms.Guna2Button();
             this.btnExit = new System.Windows.Forms.PictureBox();
             this.guna2CustomGradientPanel2 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
-            this.btnEye = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.guna2CustomGradientPanel1.SuspendLayout();
             this.guna2CustomGradientPanel3.SuspendLayout();
             this.guna2CustomGradientPanel4.SuspendLayout();
-            this.guna2CustomGradientPanel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnExit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEye)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.guna2CustomGradientPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnExit)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2CustomGradientPanel1
@@ -108,6 +108,26 @@
             this.guna2CustomGradientPanel3.ShadowDecoration.Enabled = true;
             this.guna2CustomGradientPanel3.Size = new System.Drawing.Size(443, 522);
             this.guna2CustomGradientPanel3.TabIndex = 2;
+            // 
+            // btnRegister
+            // 
+            this.btnRegister.BorderColor = System.Drawing.Color.SandyBrown;
+            this.btnRegister.BorderRadius = 15;
+            this.btnRegister.BorderThickness = 2;
+            this.btnRegister.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnRegister.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnRegister.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnRegister.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnRegister.FillColor = System.Drawing.Color.SeaShell;
+            this.btnRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegister.ForeColor = System.Drawing.Color.Gray;
+            this.btnRegister.Location = new System.Drawing.Point(38, 429);
+            this.btnRegister.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnRegister.Name = "btnRegister";
+            this.btnRegister.Size = new System.Drawing.Size(366, 65);
+            this.btnRegister.TabIndex = 23;
+            this.btnRegister.Text = "REGISTER";
+            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
             // label7
             // 
@@ -175,6 +195,18 @@
             this.guna2CustomGradientPanel4.Size = new System.Drawing.Size(366, 51);
             this.guna2CustomGradientPanel4.TabIndex = 2;
             // 
+            // btnEye
+            // 
+            this.btnEye.Image = global::LibraryDesktop.Properties.Resources.icons8_eye_30__1_;
+            this.btnEye.Location = new System.Drawing.Point(311, 10);
+            this.btnEye.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnEye.Name = "btnEye";
+            this.btnEye.Size = new System.Drawing.Size(45, 30);
+            this.btnEye.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnEye.TabIndex = 6;
+            this.btnEye.TabStop = false;
+            this.btnEye.Click += new System.EventHandler(this.btnEye_Click);
+            // 
             // btnNotshow
             // 
             this.btnNotshow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -199,6 +231,17 @@
             this.btnShow.TabIndex = 4;
             this.btnShow.UseVisualStyleBackColor = true;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::LibraryDesktop.Properties.Resources.icons8_password_64;
+            this.pictureBox2.Location = new System.Drawing.Point(12, 8);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(45, 38);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 1;
+            this.pictureBox2.TabStop = false;
+            // 
             // txtPassword
             // 
             this.txtPassword.BorderColor = System.Drawing.Color.Transparent;
@@ -219,7 +262,7 @@
             this.txtPassword.PlaceholderText = "";
             this.txtPassword.SelectedText = "";
             this.txtPassword.Size = new System.Drawing.Size(304, 40);
-            this.txtPassword.TabIndex = 7;
+            this.txtPassword.TabIndex = 2;
             this.txtPassword.UseSystemPasswordChar = true;
             // 
             // guna2CustomGradientPanel5
@@ -255,7 +298,18 @@
             this.txtUsername.PlaceholderText = "";
             this.txtUsername.SelectedText = "";
             this.txtUsername.Size = new System.Drawing.Size(304, 40);
-            this.txtUsername.TabIndex = 8;
+            this.txtUsername.TabIndex = 1;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::LibraryDesktop.Properties.Resources.icons8_user_50;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 6);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(45, 38);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
             // 
             // lblUsername
             // 
@@ -305,26 +359,6 @@
             this.label6.TabIndex = 14;
             this.label6.Text = "LOGIN";
             // 
-            // btnRegister
-            // 
-            this.btnRegister.BorderColor = System.Drawing.Color.SandyBrown;
-            this.btnRegister.BorderRadius = 15;
-            this.btnRegister.BorderThickness = 2;
-            this.btnRegister.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnRegister.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnRegister.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnRegister.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnRegister.FillColor = System.Drawing.Color.SeaShell;
-            this.btnRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegister.ForeColor = System.Drawing.Color.Gray;
-            this.btnRegister.Location = new System.Drawing.Point(38, 429);
-            this.btnRegister.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(366, 65);
-            this.btnRegister.TabIndex = 23;
-            this.btnRegister.Text = "REGISTER";
-            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
-            // 
             // btnExit
             // 
             this.btnExit.Image = global::LibraryDesktop.Properties.Resources.icons8_exit_30;
@@ -352,40 +386,6 @@
             this.guna2CustomGradientPanel2.Size = new System.Drawing.Size(447, 522);
             this.guna2CustomGradientPanel2.TabIndex = 1;
             // 
-            // btnEye
-            // 
-            this.btnEye.Image = global::LibraryDesktop.Properties.Resources.icons8_eye_30__1_;
-            this.btnEye.Location = new System.Drawing.Point(311, 10);
-            this.btnEye.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnEye.Name = "btnEye";
-            this.btnEye.Size = new System.Drawing.Size(45, 30);
-            this.btnEye.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnEye.TabIndex = 6;
-            this.btnEye.TabStop = false;
-            this.btnEye.Click += new System.EventHandler(this.btnEye_Click);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::LibraryDesktop.Properties.Resources.icons8_password_64;
-            this.pictureBox2.Location = new System.Drawing.Point(12, 8);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(45, 38);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::LibraryDesktop.Properties.Resources.icons8_user_50;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 6);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(45, 38);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -405,11 +405,11 @@
             this.guna2CustomGradientPanel3.ResumeLayout(false);
             this.guna2CustomGradientPanel3.PerformLayout();
             this.guna2CustomGradientPanel4.ResumeLayout(false);
-            this.guna2CustomGradientPanel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.btnExit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEye)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.guna2CustomGradientPanel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnExit)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

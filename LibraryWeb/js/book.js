@@ -12,8 +12,13 @@ async function loadBooks(){
 
     try{
 
-        const res =
-        await fetch(API_BOOKS);
+       const user =
+JSON.parse(localStorage.getItem("user"));
+
+const res =
+await fetch(
+`${API_BOOKS}?userId=${user.id}`
+);
 
         const data =
         await res.json();
@@ -146,31 +151,49 @@ function renderBooks(data){
 
         /* BUTTON */
 
-        const button =
+      const alreadyBorrowed =
+book.alreadyBorrowed === true;
 
-            available
+const button =
 
-            ?
+    alreadyBorrowed
 
-            `
-            <button
-            onclick="borrowBook(${book.bookId})">
+    ?
 
-                Borrow Book
+    `
+    <button disabled
+            class="btn-disabled">
 
-            </button>
-            `
+        Already Borrowed
 
-            :
+    </button>
+    `
 
-            `
-            <button disabled
-                    class="btn-disabled">
+    :
 
-                Out of Stock
+    available
 
-            </button>
-            `;
+    ?
+
+    `
+    <button
+    onclick="borrowBook(${book.bookId})">
+
+        Borrow Book
+
+    </button>
+    `
+
+    :
+
+    `
+    <button disabled
+            class="btn-disabled">
+
+        Out of Stock
+
+    </button>
+    `;
 
         html += `
 
@@ -254,8 +277,15 @@ async function borrowBook(bookId){
             return;
         }
 
-        showAlert(msg,"success");
+       showAlert(msg,"success");
 
+/* RELOAD BOOKS */
+
+await loadBooks();
+
+/* REFRESH FILTERS */
+
+applyFilters();
         loadBooks();
     }
     catch(err){

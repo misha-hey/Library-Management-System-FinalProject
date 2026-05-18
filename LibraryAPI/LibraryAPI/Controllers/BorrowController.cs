@@ -88,6 +88,7 @@ namespace LibraryAPI.Controllers
                  on b.BookId equals bk.BookId
 
                  where b.UserId == userId
+                  && b.Status == "Borrowed"
 
                  orderby b.BorrowDate descending
 
@@ -98,6 +99,7 @@ namespace LibraryAPI.Controllers
                      bk.Author,
                      bk.ImagePath,
                      b.BorrowDate,
+                     b.DueDate,
                      b.Status
                  })
 

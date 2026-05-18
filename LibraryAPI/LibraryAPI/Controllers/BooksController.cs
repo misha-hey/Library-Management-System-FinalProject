@@ -46,11 +46,30 @@ namespace LibraryAPI.Controllers
                 System.IO.File.Delete(fullPath);
             }
         }
-    
+
         [HttpGet]
-        public IActionResult GetBooks()
+        public IActionResult GetBooks(int userId)
         {
-            return Ok(_context.Books.ToList());
+            var books = _context.Books.Select(book => new
+            {
+                book.BookId,
+                book.Title,
+                book.Author,
+                book.Category,
+                book.Quantity,
+                book.ImagePath,
+
+                alreadyBorrowed = _context.Borrows.Any(b =>
+
+                    b.BookId == book.BookId &&
+
+                    b.UserId == userId &&
+
+                    b.Status == "Borrowed"
+                )
+            });
+
+            return Ok(books);
         }
 
         [HttpPost]

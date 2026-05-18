@@ -1,119 +1,165 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>Library Dashboard</title>
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet"
+          href="css/style.css">
 
-    <link href="https://fonts.googleapis.com/css2?family=Prata&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
 
 </head>
 
 <body class="books-page">
 
-    <div class="navbar">
+    <!-- NAVBAR -->
+
+    <div class="topbar">
 
         <div class="logo">
-            📚 Library
+            📚 LibraByte
         </div>
 
-        <div class="user-area">
+        <div class="menu">
+
+            <a class="active"
+               href="dashboard.html">
+
+                Dashboard
+
+            </a>
+
+            <a href="books.html">
+
+                Browse Books
+
+            </a>
+
+            <a href="borrow.html">
+
+                My Borrowed
+
+            </a>
+
+        </div>
+
+        <div class="profile-area">
 
             <span id="userName"></span>
 
-            <button onclick="location.href='books.html'">
-                Books
-            </button>
-
-            <button onclick="location.href='borrow.html'">
-                My Borrowed
-            </button>
-
+        
             <button onclick="logout()">
+
                 Logout
+
             </button>
 
         </div>
 
     </div>
 
-   <div class="dashboard">
+    <!-- MAIN -->
 
-    <!-- HERO / WELCOME -->
+    <div class="main-dashboard">
 
-    <div class="welcome-card">
+        <!-- HERO -->
 
-        <span class="welcome-badge">
-            👋 Welcome Back
-        </span>
+        <div class="hero-dashboard">
 
-        <h1>
-            Hello, Jimmy 📚
-        </h1>
+            <div class="hero-left">
 
-        <p>
+                <span class="welcome-pill">
 
-            Continue exploring your favorite books,
-            manage your borrowed items,
-            and enjoy your cozy reading experience.
+                    👋 Good to see you again
 
-        </p>
+                </span>
 
-        <a href="books.html"
-           class="hero-btn">
+                <h1>
 
-            Browse Collection
+                    Welcome back,
+                    Jimmy! 😊
 
-        </a>
+                </h1>
+
+                <p>
+
+                    Explore new books,
+                    manage your borrowed items,
+                    and continue your reading journey.
+
+                </p>
+
+                <a href="books.html"
+                   class="browse-btn">
+
+                    📖 Browse Books
+
+                </a>
+
+            </div>
+
+
+        </div>
+
+        <!-- RECENTLY BORROWED -->
+
+        <div class="recent-wrapper">
+
+            <div class="recent-top">
+
+                <h2>
+                    📑 Recently Borrowed
+                </h2>
+
+                <a href="borrow.html">
+
+                    View All
+
+                </a>
+
+            </div>
+
+            <div id="recentBorrowed">
+
+            </div>
+
+        </div>
 
     </div>
-
-    <!-- RECENTLY BORROWED -->
-
-    <div class="recent-card">
-<div id="recentBorrowed">
-
-</div>
-        <div class="recent-header">
-
-            <h2>
-                Recently Borrowed
-            </h2>
-
-            <a href="#">
-                View All
-            </a>
-
-        </div>      
-
-    </div>
-
-</div>
 
     <script>
 
-        let user = JSON.parse(localStorage.getItem("user"));
+        let user =
+        JSON.parse(localStorage.getItem("user"));
 
         if(!user){
 
-            location.href = "login.html";
+            location.href =
+            "login.html";
         }
 
-        document.getElementById("userName").innerText =
-            "Hi, " + user.name;
+        document.getElementById("userName")
+        .innerText =
+        "👋 Hi, " + user.name;
 
         function logout(){
 
             localStorage.removeItem("user");
 
-            location.href = "login.html";
+            location.href =
+            "login.html";
         }
 
     </script>
+
     <script src="js/dashboard.js"></script>
 
 </body>

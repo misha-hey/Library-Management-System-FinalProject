@@ -56,37 +56,50 @@ async function loadRecentBorrowed()
                 :
 
                 "https://via.placeholder.com/100x150";
+html += `
 
-            html += `
+<div class="borrow-item">
 
-            <div class="borrow-item">
+    <div class="borrow-left">
 
-                <div class="borrow-left">
+       ${book.imagePath ?
 
-                    <img src="${img}">
+`<img src="https://localhost:7151${book.imagePath}">`
 
-                    <div>
+:
 
-                        <h3>
-                            ${book.title}
-                        </h3>
+``}
 
-                        <p>
-                            ${book.author}
-                        </p>
+        <div>
 
-                    </div>
+            <h3>
+                ${book.title}
+            </h3>
 
-                </div>
+            <p>
+                ${book.author}
+            </p>
 
-                <span class="status borrowed">
+            <small class="due-date">
 
-                    Borrowed
+                📅 Due:
+                ${new Date(book.dueDate)
+                    .toLocaleDateString()}
 
-                </span>
+            </small>
 
-            </div>
-            `;
+        </div>
+
+    </div>
+
+    <span class="status borrowed">
+
+        Borrowed
+
+    </span>
+
+</div>
+`;
         });
 
         container.innerHTML = html;

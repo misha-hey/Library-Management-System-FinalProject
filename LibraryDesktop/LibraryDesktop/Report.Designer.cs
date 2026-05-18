@@ -276,7 +276,7 @@
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chartBorrow.Series.Add(series1);
-            this.chartBorrow.Size = new System.Drawing.Size(506, 326);
+            this.chartBorrow.Size = new System.Drawing.Size(751, 326);
             this.chartBorrow.TabIndex = 2;
             this.chartBorrow.Text = "chart1";
             // 
@@ -354,7 +354,7 @@
             this.dgvReports.RowHeadersVisible = false;
             this.dgvReports.RowHeadersWidth = 62;
             this.dgvReports.RowTemplate.Height = 28;
-            this.dgvReports.Size = new System.Drawing.Size(513, 294);
+            this.dgvReports.Size = new System.Drawing.Size(751, 294);
             this.dgvReports.TabIndex = 5;
             this.dgvReports.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvReports.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -382,8 +382,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.SandyBrown;
-            this.ClientSize = new System.Drawing.Size(1064, 680);
+            this.ClientSize = new System.Drawing.Size(1278, 680);
             this.Controls.Add(this.dgvReports);
             this.Controls.Add(this.chartBorrow);
             this.Controls.Add(this.guna2CustomGradientPanel9);

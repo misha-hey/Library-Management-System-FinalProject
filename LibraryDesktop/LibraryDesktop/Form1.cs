@@ -45,7 +45,7 @@ namespace LibraryDesktop
 
             var loginData = new
             {
-                Email = username,   // bisan username ang textbox name
+                Email = username,   
                 Password = password
             };
 

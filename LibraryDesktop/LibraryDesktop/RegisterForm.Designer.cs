@@ -31,6 +31,11 @@
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.guna2CustomGradientPanel3 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.guna2CustomGradientPanel2 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.txtName = new Guna.UI2.WinForms.Guna2TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnRegister = new Guna.UI2.WinForms.Guna2Button();
             this.guna2CustomGradientPanel4 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
@@ -39,19 +44,14 @@
             this.btnShow = new System.Windows.Forms.Button();
             this.txtPassword = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2CustomGradientPanel5 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
-            this.guna2CustomGradientPanel2 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
-            this.txtName = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtEmail = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.guna2CustomGradientPanel1.SuspendLayout();
             this.guna2CustomGradientPanel3.SuspendLayout();
+            this.guna2CustomGradientPanel2.SuspendLayout();
             this.guna2CustomGradientPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnEye)).BeginInit();
             this.guna2CustomGradientPanel5.SuspendLayout();
-            this.guna2CustomGradientPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2CustomGradientPanel1
@@ -101,6 +101,70 @@
             this.guna2CustomGradientPanel3.ShadowDecoration.Enabled = true;
             this.guna2CustomGradientPanel3.Size = new System.Drawing.Size(443, 522);
             this.guna2CustomGradientPanel3.TabIndex = 3;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Elephant", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(18, 247);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(104, 24);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "Password:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Elephant", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(51, 177);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(71, 24);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Email:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Elephant", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(48, 99);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(69, 24);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Name:";
+            // 
+            // guna2CustomGradientPanel2
+            // 
+            this.guna2CustomGradientPanel2.BorderColor = System.Drawing.Color.Silver;
+            this.guna2CustomGradientPanel2.BorderRadius = 10;
+            this.guna2CustomGradientPanel2.BorderThickness = 1;
+            this.guna2CustomGradientPanel2.Controls.Add(this.txtName);
+            this.guna2CustomGradientPanel2.Location = new System.Drawing.Point(136, 78);
+            this.guna2CustomGradientPanel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.guna2CustomGradientPanel2.Name = "guna2CustomGradientPanel2";
+            this.guna2CustomGradientPanel2.Size = new System.Drawing.Size(272, 51);
+            this.guna2CustomGradientPanel2.TabIndex = 9;
+            // 
+            // txtName
+            // 
+            this.txtName.BorderColor = System.Drawing.Color.Transparent;
+            this.txtName.BorderThickness = 0;
+            this.txtName.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtName.DefaultText = "";
+            this.txtName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtName.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtName.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtName.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.txtName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtName.Location = new System.Drawing.Point(4, 5);
+            this.txtName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtName.Name = "txtName";
+            this.txtName.PlaceholderText = "";
+            this.txtName.SelectedText = "";
+            this.txtName.Size = new System.Drawing.Size(264, 40);
+            this.txtName.TabIndex = 1;
             // 
             // label2
             // 
@@ -200,7 +264,7 @@
             this.txtPassword.PlaceholderText = "";
             this.txtPassword.SelectedText = "";
             this.txtPassword.Size = new System.Drawing.Size(264, 40);
-            this.txtPassword.TabIndex = 7;
+            this.txtPassword.TabIndex = 3;
             this.txtPassword.UseSystemPasswordChar = true;
             // 
             // guna2CustomGradientPanel5
@@ -214,40 +278,6 @@
             this.guna2CustomGradientPanel5.Name = "guna2CustomGradientPanel5";
             this.guna2CustomGradientPanel5.Size = new System.Drawing.Size(272, 51);
             this.guna2CustomGradientPanel5.TabIndex = 0;
-            // 
-            // guna2CustomGradientPanel2
-            // 
-            this.guna2CustomGradientPanel2.BorderColor = System.Drawing.Color.Silver;
-            this.guna2CustomGradientPanel2.BorderRadius = 10;
-            this.guna2CustomGradientPanel2.BorderThickness = 1;
-            this.guna2CustomGradientPanel2.Controls.Add(this.txtName);
-            this.guna2CustomGradientPanel2.Location = new System.Drawing.Point(136, 78);
-            this.guna2CustomGradientPanel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.guna2CustomGradientPanel2.Name = "guna2CustomGradientPanel2";
-            this.guna2CustomGradientPanel2.Size = new System.Drawing.Size(272, 51);
-            this.guna2CustomGradientPanel2.TabIndex = 9;
-            // 
-            // txtName
-            // 
-            this.txtName.BorderColor = System.Drawing.Color.Transparent;
-            this.txtName.BorderThickness = 0;
-            this.txtName.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtName.DefaultText = "";
-            this.txtName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtName.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtName.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtName.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.txtName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtName.Location = new System.Drawing.Point(4, 5);
-            this.txtName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtName.Name = "txtName";
-            this.txtName.PlaceholderText = "";
-            this.txtName.SelectedText = "";
-            this.txtName.Size = new System.Drawing.Size(264, 40);
-            this.txtName.TabIndex = 8;
             // 
             // txtEmail
             // 
@@ -269,7 +299,7 @@
             this.txtEmail.PlaceholderText = "";
             this.txtEmail.SelectedText = "";
             this.txtEmail.Size = new System.Drawing.Size(264, 40);
-            this.txtEmail.TabIndex = 8;
+            this.txtEmail.TabIndex = 2;
             // 
             // guna2ControlBox1
             // 
@@ -284,36 +314,6 @@
             this.guna2ControlBox1.Size = new System.Drawing.Size(45, 29);
             this.guna2ControlBox1.TabIndex = 4;
             this.guna2ControlBox1.Click += new System.EventHandler(this.guna2ControlBox1_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Elephant", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(48, 99);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(69, 24);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "Name:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Elephant", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(51, 177);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(71, 24);
-            this.label4.TabIndex = 12;
-            this.label4.Text = "Email:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Elephant", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(18, 247);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(104, 24);
-            this.label5.TabIndex = 13;
-            this.label5.Text = "Password:";
             // 
             // RegisterForm
             // 
@@ -331,10 +331,10 @@
             this.guna2CustomGradientPanel1.PerformLayout();
             this.guna2CustomGradientPanel3.ResumeLayout(false);
             this.guna2CustomGradientPanel3.PerformLayout();
+            this.guna2CustomGradientPanel2.ResumeLayout(false);
             this.guna2CustomGradientPanel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnEye)).EndInit();
             this.guna2CustomGradientPanel5.ResumeLayout(false);
-            this.guna2CustomGradientPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
